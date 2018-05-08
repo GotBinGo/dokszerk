@@ -1,284 +1,32 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
-\PassOptionsToPackage{hyphens}{url}
-%
 \documentclass[]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-\fi
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
+\usepackage{fixltx2e}
+\usepackage[utf8]{inputenc}
+\usepackage{t1enc}
+\usepackage[magyar]{babel}
 \usepackage{hyperref}
-\hypersetup{
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
 
-% set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
+\usepackage{graphicx,grffile}
+
+\usepackage{parskip}
+
+
 
 
 \date{}
-
+\makeindex
 \begin{document}
 
-\textsc{Szakdolgozat}
 
-\textsc{Congame}
+\begin{titlepage} 
+	\center {\Huge \bf Szakdolgozat} \vfill {\huge Congame} \\[20pt] {\Large Bordák Tamás} \vfill  \vfill {\Large 2015} 
+\end{titlepage}
 
-\textsc{Bordák Tamás}
-
-\textsc{2015}
-
-\textsc{\\
-}
-
-Tartalom
-
-\protect\hyperlink{bevezetuxe9s}{{1} {Bevezetés} 1}
-
-\protect\hyperlink{mitux151l-juxf3-egy-juxe1tuxe9k}{{1.1} {Mitől jó egy
-játék} 1}
-
-\protect\hyperlink{elterjedt-juxe1tuxe9ktuxedpusok}{{1.2} {Elterjedt
-játéktípusok} 2}
-
-\protect\hyperlink{tuxf6bbjuxe1tuxe9kos-online-harci-aruxe9na-moba}{{1.2.1}
-{Többjátékos online harci aréna (MOBA)} 2}
-
-\protect\hyperlink{huxe1boruxfajuxe1tuxe9k}{{1.2.2} {Háborújáték} 2}
-
-\protect\hyperlink{vidd-haza-a-zuxe1szluxf3t-ctf}{{1.2.3} {Vidd haza a
-zászlót (CTF)} 2}
-
-\protect\hyperlink{specifikuxe1ciuxf3}{{1.3} {Specifikáció} 3}
-
-\protect\hyperlink{a-juxe1tuxe9k-alapuxf6tlete}{{1.3.1} {A játék
-alapötlete} 3}
-
-\protect\hyperlink{a-juxe1tuxe9k-bemutatuxe1sa}{{1.3.2} {A játék
-bemutatása} 3}
-
-\protect\hyperlink{tuxf6bb-juxe1tuxe9kos-nem-csak-a-puxe1lyuxe1n}{{1.3.3}
-{Több játékos, nem csak a pályán} 4}
-
-\protect\hyperlink{megjelenuxedtuxe9s-muxf3dja}{{1.3.4} {Megjelenítés
-módja} 4}
-
-\protect\hyperlink{tervezuxe9s}{{2} {Tervezés} 5}
-
-\protect\hyperlink{elvuxe1ruxe1sok-a-juxe1tuxe9kkal-szemben}{{2.1}
-{Elvárások a játékkal szemben} 5}
-
-\protect\hyperlink{fejlesztuxe9si-platform-megvuxe1lasztuxe1sa}{{2.2}
-{Fejlesztési platform megválasztása} 5}
-
-\protect\hyperlink{hasznuxe1lt-technoluxf3giuxe1k}{{2.3} {Használt
-technológiák} 6}
-
-\protect\hyperlink{iruxe1nyelvek}{{2.3.1} {Irányelvek} 6}
-
-\protect\hyperlink{szerver-oldal}{{2.4} {Szerver-oldal} 6}
-
-\protect\hyperlink{node.js}{{2.4.1} {Node.js} 6}
-
-\protect\hyperlink{websocket}{{2.4.2} {WebSocket} 7}
-
-\protect\hyperlink{kliens-oldal}{{2.5} {Kliens-oldal} 7}
-
-\protect\hyperlink{html5-canvas}{{2.5.1} {HTML5 Canvas} 8}
-
-\protect\hyperlink{feluxfcleti-tervek}{{2.5.2} {Felületi tervek} 8}
-
-\protect\hyperlink{megvaluxf3suxedtuxe1s-elux151kuxe9szuxfcletei}{{3}
-{Megvalósítás előkészületei} 9}
-
-\protect\hyperlink{futtatuxf3kuxf6rnyezet-telepuxedtuxe9se}{{3.1}
-{Futtatókörnyezet telepítése} 9}
-
-\protect\hyperlink{fejlesztux151kuxf6rnyezet-megvuxe1lasztuxe1sa}{{3.2}
-{Fejlesztőkörnyezet megválasztása} 9}
-
-\protect\hyperlink{a-hibakeresuxe9s-muxf3dszere}{{3.2.1} {A hibakeresés
-módszere} 9}
-
-\protect\hyperlink{node-package-manager}{{3.2.2} {Node Package Manager}
-10}
-
-\protect\hyperlink{verziuxf3kuxf6vetuxe9s}{{3.3} {Verziókövetés} 10}
-
-\protect\hyperlink{megvaluxf3suxedtuxe1si-elkuxe9pzeluxe9s}{{4}
-{Megvalósítási elképzelés} 11}
-
-\protect\hyperlink{modulokra-bontuxe1s}{{4.1} {Modulokra bontás} 11}
-
-\protect\hyperlink{kapcsolatkezelux151}{{4.2} {Kapcsolatkezelő} 12}
-
-\protect\hyperlink{parancsuxe9rtelmezux151}{{4.3} {Parancsértelmező} 12}
-
-\protect\hyperlink{csoportkezelux151}{{4.4} {Csoportkezelő} 12}
-
-\protect\hyperlink{juxe1tuxe9kvezuxe9rlux151}{{4.5} {Játékvezérlő} 13}
-
-\protect\hyperlink{a-vezuxe9rlux151k-kuxf6zti-kommunikuxe1ciuxf3}{{4.6}
-{A vezérlők közti kommunikáció} 13}
-
-\protect\hyperlink{fejlesztux151i-dokumentuxe1ciuxf3}{{5} {Fejlesztői
-dokumentáció} 14}
-
-\protect\hyperlink{websocket-kapcsolat-feluxe1lluxedtuxe1sa}{{5.1}
-{WebSocket kapcsolat felállítása} 14}
-
-\protect\hyperlink{a-feladathoz-megfelelux151-megvaluxf3suxedtuxe1s}{{5.1.1}
-{A feladathoz megfelelő megvalósítás} 14}
-
-\protect\hyperlink{a-kapcsolat-teszteluxe9se}{{5.1.2} {A kapcsolat
-tesztelése} 15}
-
-\protect\hyperlink{a-kapcsolatok-kezeluxe9se}{{5.2} {A kapcsolatok
-kezelése} 16}
-
-\protect\hyperlink{uxfaj-kapcsolatok-adminisztruxe1luxe1sa}{{5.2.1} {Új
-kapcsolatok adminisztrálása} 16}
-
-\protect\hyperlink{kapcsolatzuxe1ruxe1s}{{5.2.2} {Kapcsolatzárás} 16}
-
-\protect\hyperlink{uxfczenetfogaduxe1s}{{5.2.3} {Üzenetfogadás} 17}
-
-\protect\hyperlink{uxfczenetkuxfclduxe9s}{{5.2.4} {Üzenetküldés} 17}
-
-\protect\hyperlink{a-parancsuxe9rtelmezux151}{{5.3} {A parancsértelmező}
-17}
-
-\protect\hyperlink{a-csoportkezelux151}{{5.4} {A csoportkezelő} 17}
-
-\protect\hyperlink{csoportok-luxe9trehozuxe1sa}{{5.4.1} {Csoportok
-létrehozása} 18}
-
-\protect\hyperlink{csoportba-luxe9puxe9s-menete}{{5.4.2} {Csoportba
-lépés menete} 18}
-
-\protect\hyperlink{csoport-elhagyuxe1suxe1nak-menete}{{5.4.3} {Csoport
-elhagyásának menete} 19}
-
-\protect\hyperlink{uxfcres-szobuxe1k-kezeluxe9se}{{5.4.4} {Üres szobák
-kezelése} 19}
-
-\protect\hyperlink{seguxe9dfuxfcggvuxe9nyek}{{5.4.5} {Segédfüggvények}
-19}
-
-\protect\hyperlink{huxedvhatuxf3-fuxfcggvuxe9nyek}{{5.4.6} {Hívható
-függvények} 19}
-
-\protect\hyperlink{a-juxe1tuxe9kkezelux151}{{5.5} {A játékkezelő} 20}
-
-\protect\hyperlink{juxe1tuxe9kba-luxe9puxe9s}{{5.5.1} {Játékba lépés}
-20}
-
-\protect\hyperlink{juxe1tuxe9k-elhagyuxe1sa}{{5.5.2} {Játék elhagyása}
-21}
-
-\protect\hyperlink{a-juxe1tuxe9k-elinduxedtuxe1sa}{{5.5.3} {A játék
-elindítása} 21}
-
-\protect\hyperlink{a-juxe1tuxe9k-futuxe1sa}{{5.5.4} {A játék futása} 21}
-
-\protect\hyperlink{a-juxe1tuxe9k-frissuxedtuxe9se}{{5.5.5} {A játék
-frissítése} 22}
-
-\protect\hyperlink{a-juxe1tuxe9k-lezuxe1ruxe1sa}{{5.5.6} {A játék
-lezárása} 22}
-
-\protect\hyperlink{a-juxe1tuxe9kuxfczenetek}{{5.5.7} {A játéküzenetek}
-22}
-
-\protect\hyperlink{a-juxe1tuxe9kmotor}{{5.6} {A játékmotor} 23}
-
-\protect\hyperlink{a-juxe1tuxe9kmotor-cuxe9lja}{{5.6.1} {A játékmotor
-célja} 23}
-
-\protect\hyperlink{a-juxe1tuxe9k-lehetsuxe9ges-elemei}{{5.6.2} {A játék
-lehetséges elemei} 23}
-
-\protect\hyperlink{megjelenuxedtuxe9s-a-kliens-oldalon}{{5.6.3}
-{Megjelenítés a kliens-oldalon} 23}
-
-\protect\hyperlink{juxe1tuxe9kobjektumok}{{5.6.4} {Játékobjektumok} 24}
-
-\protect\hyperlink{rugalmas-uxfctkuxf6zuxe9s}{{5.6.5} {Rugalmas ütközés}
-24}
-
-\protect\hyperlink{uxfctkuxf6zuxe9s-fallal}{{5.6.6} {Ütközés fallal} 24}
-
-\protect\hyperlink{uxfctkuxf6zuxe9s-kuxf6rrel}{{5.6.7} {Ütközés körrel}
-25}
-
-\protect\hyperlink{uxfctkuxf6zuxe9s-juxe1tuxe9kossal}{{5.6.8} {Ütközés
-játékossal} 26}
-
-\protect\hyperlink{pontszerzuxe9s-uxe9s-annak-logikuxe1ja}{{5.6.9}
-{Pontszerzés és annak logikája} 26}
-
-\protect\hyperlink{felhasznuxe1luxf3i-dokumentuxe1ciuxf3}{{6}
-{Felhasználói dokumentáció} 27}
-
-\protect\hyperlink{telepuxedtuxe9s-uxfczembe-helyezuxe9s}{{7}
-{Telepítés, üzembe helyezés} 29}
-
-\protect\hyperlink{uxf6sszefoglaluxe1s}{{8} {Összefoglalás} 30}
-
-\protect\hyperlink{irodalomjegyzuxe9k}{{9} {Irodalomjegyzék} 31}
-
-\protect\hyperlink{melluxe9klet}{{10} {Melléklet} 32}
-
-\textbf{\\
-}
-
-\hypertarget{bevezetuxe9s}{%
-\section{Bevezetés}\label{bevezetuxe9s}}
+\tableofcontents
+\newpage
+\section{Bevezetés}
 
 A számítógép mára az életünk része lett, ezért mindenkinek ismernie kell
 a személyi számítógép különböző részeit és azok funkcióit. Napjainkra
@@ -304,8 +52,8 @@ A játéklehetőségek széles spektrumának kínálatában ki-ki megtalálja az
 igényeinek legmegfelelőbb számítógépes játékokat, melyek napjainkban
 népszerű időtöltésnek bizonyulnak.
 
-\hypertarget{mitux151l-juxf3-egy-juxe1tuxe9k}{%
-\subsection{ Mitől jó egy játék}\label{mitux151l-juxf3-egy-juxe1tuxe9k}}
+
+\subsection{ Mitől jó egy játék}
 
 Nem a grafika határozza meg egy játék élvezeti értékét, ezt napjaink
 egyik legnépszerűbb játéka a Minecraft is igazolja. Alapvető grafikai
@@ -318,9 +66,9 @@ kicselezésével nyerhető meg. Az efféle játékoknak mesterévé válásához
 rengeteg gyakorlás szükséges. Név szerint a Quake 3, StarCraft 2 és a
 League of Legends képviselik legjobban ezt a kategóriát.
 
-\hypertarget{elterjedt-juxe1tuxe9ktuxedpusok}{%
+
 \subsection{Elterjedt
-játéktípusok}\label{elterjedt-juxe1tuxe9ktuxedpusok}}
+játéktípusok}
 
 A versenyszerű játékoknak néhány fő fajtája ismert, mindegyiknek
 rengeteg alváltozata, újraértelmezése létezik. A legjelentősebb
@@ -331,9 +79,9 @@ minden csapattagnak megvan az egyedi szerepe. A játéktól függően a
 csapatok méretében jelentős különbségek lehetnek. A továbbiakban a három
 leglényegesebb játéktípust ismertetem.
 
-\hypertarget{tuxf6bbjuxe1tuxe9kos-online-harci-aruxe9na-moba}{%
+
 \subsubsection{Többjátékos online harci aréna
-(MOBA)}\label{tuxf6bbjuxe1tuxe9kos-online-harci-aruxe9na-moba}}
+(MOBA)}
 
 A játékosok csapatokat alkotnak és egy kijelölt területen, az
 „arénában'' küzdenek meg. A játék célja lehet egyes pontok elfoglalása,
@@ -341,17 +89,17 @@ vagy az összes ellenfél megsemmisítése. Leggyakoribb az 5-5 és a 3-3
 felállás. A játékban fontos a csapattagok együttműködése és a választott
 stratégia.
 
-\hypertarget{huxe1boruxfajuxe1tuxe9k}{%
-\subsubsection{Háborújáték}\label{huxe1boruxfajuxe1tuxe9k}}
+
+\subsubsection{Háborújáték}
 
 Itt a csapatok helyett seregekről beszélhetünk, melyek nyílt területen
 mérkőznek meg. A játék során a seregek célja az ellenséges bázis
 elfoglalása. Ebben a játékmódban szerepe van a stratégiának, de a csapat
 toborzás sokkal fontosabb.
 
-\hypertarget{vidd-haza-a-zuxe1szluxf3t-ctf}{%
+
 \subsubsection{Vidd haza a zászlót
-(CTF)}\label{vidd-haza-a-zuxe1szluxf3t-ctf}}
+(CTF)}
 
 Mindkét csapat a bázisán lévő zászlót védi és az ellenfél zászlóját
 próbálja megszerezni. A játékosok szabadon mozognak a pályán, de az
@@ -362,11 +110,11 @@ A rablási kísérlet megállításáért pont jár. Ha ez nem sikerül és az
 elrabolt zászlót saját bázisáig juttatja egy játékos, azzal a csapat
 pontot szerez.
 
-\hypertarget{specifikuxe1ciuxf3}{%
-\subsection{Specifikáció}\label{specifikuxe1ciuxf3}}
 
-\hypertarget{a-juxe1tuxe9k-alapuxf6tlete}{%
-\subsubsection{A játék alapötlete}\label{a-juxe1tuxe9k-alapuxf6tlete}}
+\subsection{Specifikáció}
+
+
+\subsubsection{A játék alapötlete}
 
 A bemutatottak közül a zászlós játékmód kerül megvalósításra. A
 változatos és gyors játékmenet mellett a csapatok együttműködésének is
@@ -378,8 +126,8 @@ viszont van lehetőség a fejlődésre. A kezdő és a gyakorlott játékos
 között érezhető különbségek lesznek. A csapattagok együttműködése még
 ennél is fontosabb és még több teret ad a versenyszerűségnek.
 
-\hypertarget{a-juxe1tuxe9k-bemutatuxe1sa}{%
-\subsubsection{A játék bemutatása}\label{a-juxe1tuxe9k-bemutatuxe1sa}}
+
+\subsubsection{A játék bemutatása}
 
 A megvalósítani kívánt játék egy négyzetes pályán játszható. A pályán
 megtalálható a csapatok bázisa, ezt a csapat zászlója jelöli. A
@@ -407,9 +155,9 @@ bázisát és zászlóját szintén a csapatszín jelöli. A csapatszínek
 jellemzően kiegészítő színpárok, tehát jól elkülönülnek. A játéktér
 lehetőleg szimmetrikus, így egyik csapat sem jut semmiféle előnyhöz.
 
-\hypertarget{tuxf6bb-juxe1tuxe9kos-nem-csak-a-puxe1lyuxe1n}{%
+
 \subsubsection{Több játékos, nem csak a
-pályán}\label{tuxf6bb-juxe1tuxe9kos-nem-csak-a-puxe1lyuxe1n}}
+pályán}
 
 A felvázolt játékot egy időben több játékos játssza, a játéktípus
 magában, legalább 4 játékost feltételez. A játékosok helyi hálózaton,
@@ -421,8 +169,8 @@ használható, egyéb szolgáltatások veszik körül, így egy, a szobák
 kezelésére és a felhasználók közi kommunikációra alkalmas chat felületre
 is szükség van.
 
-\hypertarget{megjelenuxedtuxe9s-muxf3dja}{%
-\subsubsection{Megjelenítés módja}\label{megjelenuxedtuxe9s-muxf3dja}}
+
+\subsubsection{Megjelenítés módja}
 
 A felület és játék stílusa minden ponton az egyszerű kinézetre
 törekszik. A dizájn jellemzően néhány előre kiválasztott színnel
@@ -435,12 +183,12 @@ rajzolt színes körökként jelennek meg. A csapat zászlóját egy
 megfelelően a körbe rajzolt háromszög és vonal együttese alkotja. A
 háromszög kitöltési színe a csapat színe.
 
-\hypertarget{tervezuxe9s}{%
-\section{Tervezés}\label{tervezuxe9s}}
 
-\hypertarget{elvuxe1ruxe1sok-a-juxe1tuxe9kkal-szemben}{%
+\section{Tervezés}
+
+
 \subsection{Elvárások a játékkal
-szemben}\label{elvuxe1ruxe1sok-a-juxe1tuxe9kkal-szemben}}
+szemben}
 
 A célom, hogy a játékot minél több felhasználó kipróbálhassa,
 élvezhesse, a már általa megszokott környezetben. A játék elsősorban
@@ -462,9 +210,9 @@ változattal szemben, ahol csak egy weboldalt kell felkeresnünk. A modern
 böngészők és az elérhető árú számítógépek világában a legtöbb
 felhasználónak nem lesz gondja a teljesítménnyel.
 
-\hypertarget{fejlesztuxe9si-platform-megvuxe1lasztuxe1sa}{%
+
 \subsection{Fejlesztési platform
-megválasztása}\label{fejlesztuxe9si-platform-megvuxe1lasztuxe1sa}}
+megválasztása}
 
 A böngészős alkalmazásunk programozásához több megoldás közül
 választhatunk. Lehetőségünk van kiegészítőket használni például Adobe
@@ -482,12 +230,12 @@ kiszolgáló központi csomópont, minden felhasználó ide csatlakozik, így
 ha ez nem képes tartani az iramot, azt minden játékos megérzi. Célszerű
 elterjedt megoldásokat használni a széleskörű támogatottság miatt.
 
-\hypertarget{hasznuxe1lt-technoluxf3giuxe1k}{%
-\subsection{Használt
-technológiák}\label{hasznuxe1lt-technoluxf3giuxe1k}}
 
-\hypertarget{iruxe1nyelvek}{%
-\subsubsection{Irányelvek}\label{iruxe1nyelvek}}
+\subsection{Használt
+technológiák}
+
+
+\subsubsection{Irányelvek}
 
 A JavaScript nyelvben lehetőség van az objektumorientált programozásra.
 Ez nagyon ajánlott, de nem kötelezettség. A probléma részekre bontása
@@ -497,11 +245,11 @@ jellemzően több munkát és tervezést igényel, de ez a befektetés
 hosszútávon könnyen megtérül. A később alkalmazott változtatások
 nagyságrendekkel egyszerűbben elvégezhetőek.
 
-\hypertarget{szerver-oldal}{%
-\subsection{Szerver-oldal}\label{szerver-oldal}}
 
-\hypertarget{node.js}{%
-\subsubsection{Node.js}\label{node.js}}
+\subsection{Szerver-oldal}
+
+
+\subsubsection{Node.js}
 
 A Node.js egy szerver-oldali JavaScript alapú futtatókörnyezet. Ez
 Chrome V8 JavaScript motorjára épül, amely már évek óta a legjobban
@@ -522,8 +270,8 @@ hogy alkalmas valós idejű kiszolgálók megvalósítására. Fontos jellemző
 még, hogy mind Windows, Linux és Macintosh rendszereken egyaránt
 használható.
 
-\hypertarget{websocket}{%
-\subsubsection{WebSocket}\label{websocket}}
+
+\subsubsection{WebSocket}
 
 Valósidejű alkalmazásokhoz elengedhetetlen a gyors kétirányú
 adatkapcsolat. A böngészők eredetileg, http kéréseket küldtek, majd az
@@ -560,8 +308,8 @@ kapcsolat záródhat egy harmadik módon is. Amennyiben a két fél hálózati
 összeköttetése megszakad, akkor a felek külön-külön időtúllépés miatt
 zárják a kapcsolatot.
 
-\hypertarget{kliens-oldal}{%
-\subsection{Kliens-oldal}\label{kliens-oldal}}
+
+\subsection{Kliens-oldal}
 
 A felhasználó a számítógépére telepített böngészővel csatlakozhat a
 kiszolgálóhoz. A kapcsolat során a kiszolgáló gondoskodik a megfelelő
@@ -574,8 +322,8 @@ vigyáznunk kell, mivel egyes böngészők közt is vannak eltérések. Ezeket
 a legkönnyebb folyamatos teszteléssel kiszűrni. A tesztelést többféle
 böngészővel kell végezni.
 
-\hypertarget{html5-canvas}{%
-\subsubsection{HTML5 Canvas}\label{html5-canvas}}
+
+\subsubsection{HTML5 Canvas}
 
 A böngészők régóta képesek grafikai elemek megjelenítésére. Az elmúlt
 években ezen a téren jelentős előrelépések voltak mind
@@ -585,8 +333,8 @@ vagy akár raszter, sőt vektorgrafikus képeket is. A canvas alapú
 megjelenítéssel együtt jár annak könnyű beillesztése a felületbe, hiszen
 a böngésző saját stílusbeállításait használhatjuk.
 
-\hypertarget{feluxfcleti-tervek}{%
-\subsubsection{Felületi tervek}\label{feluxfcleti-tervek}}
+
+\subsubsection{Felületi tervek}
 
 A felület egyszerű lesz. Az 1. ábrán látható az alapvető elosztás, ami
 magában foglal egy alsó panelt, ami tartalmazza szoba tagjainak listáját
@@ -597,13 +345,13 @@ foglalja el.
 
 1. ábra -- A felhasználói felület terve
 
-\hypertarget{megvaluxf3suxedtuxe1s-elux151kuxe9szuxfcletei}{%
-\section{Megvalósítás
-előkészületei}\label{megvaluxf3suxedtuxe1s-elux151kuxe9szuxfcletei}}
 
-\hypertarget{futtatuxf3kuxf6rnyezet-telepuxedtuxe9se}{%
+\section{Megvalósítás
+előkészületei}
+
+
 \subsection{Futtatókörnyezet
-telepítése}\label{futtatuxf3kuxf6rnyezet-telepuxedtuxe9se}}
+telepítése}
 
 A választott futtatókörnyezet Node.js, ezt Windowson telepíthetjük a
 nodejs.org-ról letölthető Windows Installer-el. Debian Linux
@@ -617,9 +365,9 @@ Google Chrome-ot is használok. Így biztosítani tudom, hogy mindkét
 böngészőben minden zökkenőmentesen működik. Az internetezők több mint
 60\%-a is e két böngésző egyikét használja.
 
-\hypertarget{fejlesztux151kuxf6rnyezet-megvuxe1lasztuxe1sa}{%
+
 \subsection{Fejlesztőkörnyezet
-megválasztása}\label{fejlesztux151kuxf6rnyezet-megvuxe1lasztuxe1sa}}
+megválasztása}
 
 A web fejlesztők többsége egyszerű szövegszerkesztőt használ a
 fejlesztőmunka során. Windowson a legelterjedtebb a könnyen használható
@@ -635,9 +383,9 @@ azonban összetett részfeladatok, amelyek elkészítése nem sikerül egyből.
 A hibásan megírt program javítását hibakeresésnek vagy debugolásnak
 hívjuk.
 
-\hypertarget{a-hibakeresuxe9s-muxf3dszere}{%
+
 \subsubsection{A hibakeresés
-módszere}\label{a-hibakeresuxe9s-muxf3dszere}}
+módszere}
 
 A hibakeresés során speciális hibakereső szoftvert használunk, amely
 lehetővé teszi a program lépésenkénti futtatását, így képet kaphatunk a
@@ -655,8 +403,8 @@ felületének felépítése.
 
 2. ábra -- Node Inspector webes felület
 
-\hypertarget{node-package-manager}{%
-\subsubsection{Node Package Manager}\label{node-package-manager}}
+
+\subsubsection{Node Package Manager}
 
 A Node.js egy tartozéka az „npm'', ami a Node.js csomagok telepítésére
 és publikálására alkalmas. A sokféle probléma és az ezekre adott sokféle
@@ -665,8 +413,8 @@ megoldás kezelésére alkalmas ez. Egy csomag telepítése a „npm install
 telepítése történhet a központi adatbázisból, az internetről, vagy helyi
 forrásból.
 
-\hypertarget{verziuxf3kuxf6vetuxe9s}{%
-\subsection{Verziókövetés}\label{verziuxf3kuxf6vetuxe9s}}
+
+\subsection{Verziókövetés}
 
 A szakdolgozat készítési folyamat egésze alatt verziókövetést használok.
 Erre a legalkalmasabb a Git nevű verziókövető szoftver. Egyaránt képes
@@ -683,12 +431,12 @@ változtatásokat egy központi tárolónak. A verziókezelés egyszemélyes
 projekteknél nem kulcsfontosságú, de felgyorsítja és átláthatóvá teszi a
 programfejlesztést.
 
-\hypertarget{megvaluxf3suxedtuxe1si-elkuxe9pzeluxe9s}{%
-\section{Megvalósítási
-elképzelés}\label{megvaluxf3suxedtuxe1si-elkuxe9pzeluxe9s}}
 
-\hypertarget{modulokra-bontuxe1s}{%
-\subsection{Modulokra bontás }\label{modulokra-bontuxe1s}}
+\section{Megvalósítási
+elképzelés}
+
+
+\subsection{Modulokra bontás }
 
 A program írása közben igyekeztem előre gondolkodni és minél
 szakszerűbb, könnyen megérthető megoldásokat produkálni. Ennek a
@@ -722,8 +470,8 @@ kezelhetjük, hogy mi töltődik be. Esetlegesen is csak a forrásfájlok
 elejét kell szerkesztenünk, ha több vagy kevesebb modult szeretnénk
 betölteni.
 
-\hypertarget{kapcsolatkezelux151}{%
-\subsection{Kapcsolatkezelő}\label{kapcsolatkezelux151}}
+
+\subsection{Kapcsolatkezelő}
 
 A kapcsolatkezelő a kiszolgálóarhiterktúra szélső eleme. Minden beérkező
 csomag ezen halad át. Folyamatosan hallgat a megadott TCP porton. Új
@@ -734,8 +482,8 @@ bejövő kapcsolatot egy felhasználóhoz rendel. A kiszolgáló a
 továbbiakban ez alapján könnyen tudja kezelni a kapcsolatokat. Fontos
 szerepe van még kapcsolatok lezárásában is.
 
-\hypertarget{parancsuxe9rtelmezux151}{%
-\subsection{Parancsértelmező}\label{parancsuxe9rtelmezux151}}
+
+\subsection{Parancsértelmező}
 
 A parancsértelmező a központi kiszolgáló és a kapcsolatkezelő közt
 helyezkedik el. Minden olyan üzenet, ami a kapcsolatkezelőn túljut, a
@@ -749,8 +497,8 @@ vezethető vissza. Ha újabb feladatokat szeretnénk a kiszolgálóhoz
 rendelni, akkor itt kell gondoskodnunk arról, hogy a megfelelő parancs a
 kívánt programrészek lefutását eredményezze.
 
-\hypertarget{csoportkezelux151}{%
-\subsection{Csoportkezelő}\label{csoportkezelux151}}
+
+\subsection{Csoportkezelő}
 
 A csoportkezelő a kiszolgáló magját képezi. A csatlakozó felhasználók
 mindegyikéről tudomása van. Alapértelmezetten mindenki egy speciális
@@ -768,8 +516,8 @@ sem szüntetheti meg. A csoport csak abban az esetben törlődik, ha azt
 minden felhasználó elhagyta. Amennyiben a csoportot tulajdonosa
 elhagyja, a csoport új tulajdonosa az első csatlakozott játékos lesz.
 
-\hypertarget{juxe1tuxe9kvezuxe9rlux151}{%
-\subsection{Játékvezérlő}\label{juxe1tuxe9kvezuxe9rlux151}}
+
+\subsection{Játékvezérlő}
 
 A Játékvezérlő a programnak azon része, amely az egyes Játékok
 lebonyolítását végzi. Egy-egy játékvezérlő rendelhető mindegyik
@@ -779,9 +527,9 @@ erre közvetlen választ is képes küldeni. A játékvezérlő szintén
 modulokból áll. A leglényegesebb a csatlakozó vagy távozó játékosok
 kezelője, a játéklogika és a kliensek kiszolgálásáért felelős részek.
 
-\hypertarget{a-vezuxe9rlux151k-kuxf6zti-kommunikuxe1ciuxf3}{%
+
 \subsection{A vezérlők közti
-kommunikáció}\label{a-vezuxe9rlux151k-kuxf6zti-kommunikuxe1ciuxf3}}
+kommunikáció}
 
 A vezérlők közti kommunikáció megtervezése igazi kihívásnak bizonyult.
 Szem előtt tartottam a modulok hierarchiáját, és ehhez illesztettem a
@@ -795,9 +543,9 @@ egymásra hivatkoznak, előfordulhat, hogy az egyik vezérlő a másik
 betöltése előtt már szeretné azt használni. Erre megoldás, ha az egyes
 modulok betöltése után megvárjuk, hogy az utolsó modul is betöltődjön.
 
-\hypertarget{fejlesztux151i-dokumentuxe1ciuxf3}{%
+
 \section{Fejlesztői
-dokumentáció}\label{fejlesztux151i-dokumentuxe1ciuxf3}}
+dokumentáció}
 
 A megvalósítást a kiszolgáló oldalról közelítettem meg. A kiszolgáló a
 központi egység, melynek minden körülménytől függetlenül működőképesnek
@@ -809,9 +557,9 @@ A fejlesztés egy sor tesztprogram megírásával kezdődött. A választott
 technológiákat csak részben ismertem, így némi tapasztalatszerzésre volt
 szükségem.
 
-\hypertarget{websocket-kapcsolat-feluxe1lluxedtuxe1sa}{%
+
 \subsection{WebSocket kapcsolat
-felállítása}\label{websocket-kapcsolat-feluxe1lluxedtuxe1sa}}
+felállítása}
 
 A program kulcsfontosságú eleme a hálózati kapcsolat. A játék
 működéséhez valós idejű kapcsolat szükséges. A választás a legtöbb
@@ -819,9 +567,9 @@ böngésző által támogatott WebSocket-re esett. Ez viszont nem minden. A
 kiszolgáló megvalósításánál megválaszthatjuk, hogy melyik megvalósítást
 használjuk. A választék széles, mindegyiknek megvannak a sajátosságai.
 
-\hypertarget{a-feladathoz-megfelelux151-megvaluxf3suxedtuxe1s}{%
+
 \subsubsection{A feladathoz megfelelő
-megvalósítás}\label{a-feladathoz-megfelelux151-megvaluxf3suxedtuxe1s}}
+megvalósítás}
 
 A legelterjedtebbek a „ws'' és a „socket.io'', de említést érdemel még a
 „faye'' és a „socketcluster''. Az utóbbira jellemző, hogy jelentősen
@@ -841,8 +589,8 @@ de én fontosabbnak tartottam, hogy a gyorsabb megoldást alkalmazzam, még
 ha ez néhány felhasználónak kényelmetlenséget is okoz. Ezeket figyelembe
 véve tehát a „ws''-el kezdtem kísérletezni.
 
-\hypertarget{a-kapcsolat-teszteluxe9se}{%
-\subsubsection{A kapcsolat tesztelése}\label{a-kapcsolat-teszteluxe9se}}
+
+\subsubsection{A kapcsolat tesztelése}
 
 Az első kihívás a kapcsolat felállítása. Szerencsére példaprogram bőven
 akad és a feladat sem nehéz. A „ws'' modul betöltése után példányosítjuk
@@ -868,12 +616,12 @@ kliens ezt fogadja és feldob egy ablakot a „TESZT ÜZENET'' felirattal.
 Tehát a kapcsolat működik, sőt annak mindkét oldalához logikát
 rendelhetünk és az üzenetet fel is dolgozhatjuk.
 
-\hypertarget{a-kapcsolatok-kezeluxe9se}{%
-\subsection{A kapcsolatok kezelése}\label{a-kapcsolatok-kezeluxe9se}}
 
-\hypertarget{uxfaj-kapcsolatok-adminisztruxe1luxe1sa}{%
+\subsection{A kapcsolatok kezelése}
+
+
 \subsubsection{Új kapcsolatok
-adminisztrálása}\label{uxfaj-kapcsolatok-adminisztruxe1luxe1sa}}
+adminisztrálása}
 
 A kapcsolatok kialakítása megoldott, de ez még nem sok. A kapcsolatokat
 azonosítani kell. Minden egyes kapcsolat új felhasználót hoz létre. A
@@ -885,8 +633,8 @@ azonosítóval rendelkezik. A felhasználókat azonosító alapján találjuk
 meg. Az azonosító egy számlálóból származik. Ez gyakorlatban garantálja,
 hogy nem lesz két felhasználó ugyanazzal az azonosítóval.
 
-\hypertarget{kapcsolatzuxe1ruxe1s}{%
-\subsubsection{Kapcsolatzárás}\label{kapcsolatzuxe1ruxe1s}}
+
+\subsubsection{Kapcsolatzárás}
 
 A kapcsolatkezelés része még a kapcsolatok lezárása. A kapcsolat
 lezárása esetén, fontos hogy további adatcserére nincs lehetőség. Ez
@@ -904,8 +652,8 @@ körültekintően kell eljárni, biztosítani kell, hogy a felhasználó
 távozásáról értesüljön minden érintett részprogram. Ebben az esetben
 csak a csoportkezelő, mert a további intézkedések erre vannak bízva.
 
-\hypertarget{uxfczenetfogaduxe1s}{%
-\subsubsection{Üzenetfogadás}\label{uxfczenetfogaduxe1s}}
+
+\subsubsection{Üzenetfogadás}
 
 A kapcsolatkezelés része még a beérkező üzenetek irányítása is. Az
 üzenetek értelmezését a parancsértelmező végzi, így hát a beérkező
@@ -914,8 +662,8 @@ küldő is. Ez igen fontos, mivel tudnunk kell, hogy melyik parancsot
 melyik felhasználó küldte. Ezután az üzenettel a kapcsolatkezelő nem
 foglalkozik.
 
-\hypertarget{uxfczenetkuxfclduxe9s}{%
-\subsubsection{Üzenetküldés}\label{uxfczenetkuxfclduxe9s}}
+
+\subsubsection{Üzenetküldés}
 
 A kapcsolatkezelő még egy dologról gondoskodik, ez pedig a kimenő
 üzenetek. Minden kimenő üzenet egy felhasználónak van címezve. Ez az
@@ -923,8 +671,8 @@ A kapcsolatkezelő még egy dologról gondoskodik, ez pedig a kimenő
 bármely ponton küldhet üzenetet a kliens felé. Ehhez csupán egy
 felhasználó objektumra lesz szükség.
 
-\hypertarget{a-parancsuxe9rtelmezux151}{%
-\subsection{A parancsértelmező}\label{a-parancsuxe9rtelmezux151}}
+
+\subsection{A parancsértelmező}
 
 A parancsok mit sem érnek, ha nincsenek végrehajtva. A parancsértelmező
 gondoskodik arról, hogy a felhaszanáló által kiadott parancs a felelős
@@ -943,8 +691,8 @@ csoport elhagyás, a létező csoportok listázása és egy adott csoport
 adatainak lekérése. Ezek közül néhányat csak paraméterrel lehet
 meghívni.
 
-\hypertarget{a-csoportkezelux151}{%
-\subsection{A csoportkezelő}\label{a-csoportkezelux151}}
+
+\subsection{A csoportkezelő}
 
 A csoportkezelő, mint már említettem központi része a kiszolgálónak.
 Fontos feladatot lát el, a kapcsolatkezelőtől és a parancsértelmezőtől
@@ -953,9 +701,9 @@ szoba, a nulladik szoba. A nulladik szoba a modul betöltésekor jön
 létre. A kapcsolatkezelő minden új kapcsolat esetén ebbe a csoportba
 helyezi az újonnan létrejött felhasználót.
 
-\hypertarget{csoportok-luxe9trehozuxe1sa}{%
+
 \subsubsection{Csoportok
-létrehozása}\label{csoportok-luxe9trehozuxe1sa}}
+létrehozása}
 
 A kapcsolódó felhasználók a megfelelő paranccsal hozhatnak létre szobát.
 A parancsot a parancsértelmező kapja meg és értelmezi. Megfelelő parancs
@@ -965,9 +713,9 @@ ezt nem kötelező megadni. Ha nincs megadva név, akkor a szoba neve a
 szerveren beállított módon a csoportot létrehozó játékos nevéből
 generálódik.
 
-\hypertarget{csoportba-luxe9puxe9s-menete}{%
+
 \subsubsection{Csoportba lépés
-menete}\label{csoportba-luxe9puxe9s-menete}}
+menete}
 
 A felhasználó a megfelelő parancs kiadásával csoportba léphet. A
 csoportba lépés több mozzanatra osztható.
@@ -997,9 +745,9 @@ kerül az új tag. Emellett a célszoba tagjai kapnak egy üzenetet arról,
 hogy az adott felhasználó csatlakozott és már ő is „hallja'' a
 beszélgetést.
 
-\hypertarget{csoport-elhagyuxe1suxe1nak-menete}{%
+
 \subsubsection{Csoport elhagyásának
-menete}\label{csoport-elhagyuxe1suxe1nak-menete}}
+menete}
 
 A csoport elhagyására is van lehetőség. A szoba elhagyása a
 csatlakozáshoz hasonló. Az eredeti szoba listájából törlődik a
@@ -1008,17 +756,17 @@ csoport tagjai megkapják a megfelelő értesítést. Egyébként ez
 egyenértékű a nulladik szobába való csatlakozással, ezért gyakorlatban
 ez így van megoldva.
 
-\hypertarget{uxfcres-szobuxe1k-kezeluxe9se}{%
+
 \subsubsection{Üres szobák
-kezelése}\label{uxfcres-szobuxe1k-kezeluxe9se}}
+kezelése}
 
 Egy szoba megüresedik, hogyha minden felhasználó elhagyja azt. Itt
 elhagyás alatt értjük a másik szobába csatlakozást is. Az üres szobák
 felhalmozódását tehát meg kell előzni. Erre az a megoldás született,
 hogy ha a szobát az utolsó felhasználó is elhagyja, a szoba megszűnik.
 
-\hypertarget{seguxe9dfuxfcggvuxe9nyek}{%
-\subsubsection{Segédfüggvények}\label{seguxe9dfuxfcggvuxe9nyek}}
+
+\subsubsection{Segédfüggvények}
 
 A szobakezelő több segédfüggvényt is tartalmaz, ezek nem feltétlenül
 szükségesek a szobakezelés működéséhez, de logikailag ide tartoznak.
@@ -1026,9 +774,9 @@ Ilyen függvény például a csoportok listázása, vagy a csoportos
 üzenetküldés. A modul tartalmaz segédmetódusokat, de a legtöbb kívülről
 is elérhető.
 
-\hypertarget{huxedvhatuxf3-fuxfcggvuxe9nyek}{%
+
 \subsubsection{Hívható
-függvények}\label{huxedvhatuxf3-fuxfcggvuxe9nyek}}
+függvények}
 
 A kiszolgáló minden részprogramjából elérhető hívások ezek. Egy zárt
 egységet, ebben az esetben a szobakezelőt rejtik maguk mögött. Csak
@@ -1059,8 +807,8 @@ pedig egy asszociatív tömbben adhatjuk meg jellemző leírását. A leírás
 határozza meg, hogy mi történjen a jellemző írásakor, olvasásakor vagy
 meghívásakor. Ezen felül megadhatjuk, hogy a jellemző felülírható-e.
 
-\hypertarget{a-juxe1tuxe9kkezelux151}{%
-\subsection{A játékkezelő}\label{a-juxe1tuxe9kkezelux151}}
+
+\subsection{A játékkezelő}
 
 Minden csoporthoz alapértelmezetten egy játékkezelő is tartozik. A
 játékkezelő kezdetben nem aktív, de már ebben a passzív állapotban is
@@ -1068,8 +816,8 @@ fontos szerepe van. A játékkezelőnek mindig készen kell állnia a játék
 elindítására, ezért már a kezdettől figyelemmel kíséri a szobába lépő és
 azt elhagyó játékosokat.
 
-\hypertarget{juxe1tuxe9kba-luxe9puxe9s}{%
-\subsubsection{Játékba lépés}\label{juxe1tuxe9kba-luxe9puxe9s}}
+
+\subsubsection{Játékba lépés}
 
 Ahogy a felhasználó játékba lép, azt játékosként is kell adminisztrálni.
 A játékosokhoz nem csak a névvel, azonosítóval és a kapcsolattal
@@ -1094,8 +842,8 @@ csapata, a játékos pontszáma, pozíciója, sebessége, mérete. Követve
 vannak még a játékos lenyomott gombjai is, és az utolsó kiküldött
 frissítés adatai is.
 
-\hypertarget{juxe1tuxe9k-elhagyuxe1sa}{%
-\subsubsection{Játék elhagyása}\label{juxe1tuxe9k-elhagyuxe1sa}}
+
+\subsubsection{Játék elhagyása}
 
 A játék elhagyásának kezelése egy újabb feladat. Ennek során a játékost
 ismét csak el kell távolítani a csapatból, de itt már egészen más
@@ -1104,9 +852,9 @@ eljárni. Esetünkben a felhasználó pontszámát nullázni kell, és ha
 esetleg a játékosnál zászló van, akkor annak is vissza kell kerülnie a
 helyére.
 
-\hypertarget{a-juxe1tuxe9k-elinduxedtuxe1sa}{%
+
 \subsubsection{A játék
-elindítása}\label{a-juxe1tuxe9k-elinduxedtuxe1sa}}
+elindítása}
 
 A játék a start metódus hívásával indítható el. A játék ekkor végzi el
 az utolsó előkészületeket, betölti a pályaelemeket, többek között a
@@ -1117,8 +865,8 @@ el az összes szükséges beállítást. A játék elindításával a játék
 státusza „running''-ra vált. Ezzel jelzi, hogy a játék elkezdődött. A
 játék most már valóban készen áll a működésre.
 
-\hypertarget{a-juxe1tuxe9k-futuxe1sa}{%
-\subsubsection{A játék futása}\label{a-juxe1tuxe9k-futuxe1sa}}
+
+\subsubsection{A játék futása}
 
 A játék menete a játék folyamatos frissítéséből származik. Ez a
 frissítés ideális esetben fix időközönként következik be. Minden
@@ -1134,9 +882,9 @@ elindításakor létrehozott időzítő gondoskodik.
 
 6. ábra -- Időzítő készítése
 
-\hypertarget{a-juxe1tuxe9k-frissuxedtuxe9se}{%
+
 \subsubsection{A játék
-frissítése}\label{a-juxe1tuxe9k-frissuxedtuxe9se}}
+frissítése}
 
 A JavaScript alapértelmezetten támogatja az időzítőket. A mellékelt 6.
 ábrán látható ennek működése. A „timer'' a játék egy belső objektuma. A
@@ -1155,8 +903,8 @@ majd, hogy képkockák között két frissítési ciklus is lefut. Játékoknál
 ez gyakran előfordul, ennek a frissítési eltérésnek nincs szemmel
 látható következménye.
 
-\hypertarget{a-juxe1tuxe9k-lezuxe1ruxe1sa}{%
-\subsubsection{A játék lezárása}\label{a-juxe1tuxe9k-lezuxe1ruxe1sa}}
+
+\subsubsection{A játék lezárása}
 
 A játék játékos nélkül nem létezhet. Ezért ha az utolsó felhasználó is
 elhagyja a játékot, a játék véget ér. A játék frissítését le kell
@@ -1166,8 +914,8 @@ volt szükség, hogy azt később törölhessük. Ha nem mentettük volna el,
 akkor most nem tudnánk törölni azt. Az időzítő funkciók egyébként
 globális objektumként érhetőek el, tehát a „require'' használata nélkül.
 
-\hypertarget{a-juxe1tuxe9kuxfczenetek}{%
-\subsubsection{A játéküzenetek}\label{a-juxe1tuxe9kuxfczenetek}}
+
+\subsubsection{A játéküzenetek}
 
 A játékkezelőnek fontos, hogy a felsőbb utasításokat fogadni tudja. Erre
 a „message'' metódus ad megoldást. A játéknak a kiszolgálóprogram
@@ -1177,11 +925,11 @@ ezt már a játéklogika határozza meg. Valójában a megvalósításban ezek a
 üzenetek csak a felhasználó által megnyomott billentyűk kezelésére
 vannak használva, így ezek az üzenetek nincsenek valójában lekezelve.
 
-\hypertarget{a-juxe1tuxe9kmotor}{%
-\subsection{A játékmotor}\label{a-juxe1tuxe9kmotor}}
 
-\hypertarget{a-juxe1tuxe9kmotor-cuxe9lja}{%
-\subsubsection{A játékmotor célja}\label{a-juxe1tuxe9kmotor-cuxe9lja}}
+\subsection{A játékmotor}
+
+
+\subsubsection{A játékmotor célja}
 
 A játékmotor nem más, mint a játékötlet megvalósításának a
 keretrendszere. A játékmotor megoldásokat biztosít az elemi műveletek
@@ -1195,9 +943,9 @@ parancsfeldolgozás. A kliens megkapja a rá vonatkozó utasításokat, egy
 objektumstruktúrában. Ezt feldolgozva megkapja, hogy milyen objektumokat
 kell megjeleníteni.
 
-\hypertarget{a-juxe1tuxe9k-lehetsuxe9ges-elemei}{%
+
 \subsubsection{A játék lehetséges
-elemei}\label{a-juxe1tuxe9k-lehetsuxe9ges-elemei}}
+elemei}
 
 A játékhoz csak néhány elemre van szükség. Ezek mindegyike meghatározott
 tulajdonságokkal bír. Legfontosabbak a zászlók. Ezeknek egyik jellemzője
@@ -1205,9 +953,9 @@ a tulajdonos csapat azonosítója. Játékelemek még a játékban lévő falak,
 körök és egyéb akadályok. Ezek mindegyike eltérő módon van kezelve mind
 a szerver, mind a kliens oldalán.
 
-\hypertarget{megjelenuxedtuxe9s-a-kliens-oldalon}{%
+
 \subsubsection{Megjelenítés a
-kliens-oldalon}\label{megjelenuxedtuxe9s-a-kliens-oldalon}}
+kliens-oldalon}
 
 Az egyes elemekhez más-más megjelenítési procedúra van rendelve.
 Általánosan igaz, hogy az elemeknek van pozíciója, és valamiféle
@@ -1224,8 +972,8 @@ ezzel a pozícióval.
 Lehetőség van még közvetlenül a felületre rajzolni. Ekkor a követett
 játékos pozíciója nem befolyásolja a megjelenítést.
 
-\hypertarget{juxe1tuxe9kobjektumok}{%
-\subsubsection{Játékobjektumok}\label{juxe1tuxe9kobjektumok}}
+
+\subsubsection{Játékobjektumok}
 
 A választott zászlójátékban lényeges, hogy a játékosok a pálya mely
 részeire juthatnak el. Erről a játéklogikában kezelt objektumok
@@ -1235,8 +983,8 @@ sajátos viselkedése. Ez a játék minden frissítési lépésénél lefut és
 kifejti hatását a többi játékelemre, így befolyásolva a játék további
 menetét.
 
-\hypertarget{rugalmas-uxfctkuxf6zuxe9s}{%
-\subsubsection{Rugalmas ütközés}\label{rugalmas-uxfctkuxf6zuxe9s}}
+
+\subsubsection{Rugalmas ütközés}
 
 A játék működéséhez kulcsfontosságú az ütközések helyes kezelése. A
 rugalmas ütküzés pontos szimulálását kellett megoldanom. Természetesen
@@ -1244,8 +992,8 @@ itt érvényes az energiamegmaradás törvénye, tehát az ütközés során
 mozgási energia el nem vész, csak áttevődik. A játékban az objektumok
 kölcsönhatására általánosan igaz ez.
 
-\hypertarget{uxfctkuxf6zuxe9s-fallal}{%
-\subsubsection{Ütközés fallal}\label{uxfctkuxf6zuxe9s-fallal}}
+
+\subsubsection{Ütközés fallal}
 
 A legegyszerűbb és leggyakoribb játékelem a fal. A falak a már említett
 módon, játékobjektumként vannak kezelve. A fal logikája kimondja, hogy
@@ -1281,8 +1029,8 @@ apró körrel zárjuk, így a mozgó kör majd ezekkel fog ütközni. Ez
 egyszerű megoldás, hiszen úgyis szükséges a kör-kör ütközés
 megvalósítása.
 
-\hypertarget{uxfctkuxf6zuxe9s-kuxf6rrel}{%
-\subsubsection{Ütközés körrel}\label{uxfctkuxf6zuxe9s-kuxf6rrel}}
+
+\subsubsection{Ütközés körrel}
 
 Körök ütközésekor azok közül legalább az egyiknek mozgásban kell lennie.
 Az ilyen ütközést és kimenetelét átgondolni is bonyolultabb, így azt
@@ -1309,9 +1057,9 @@ síkra merőleges komponenseket felcserélni. Ez a legegyszerűbb módszer.
 Az algoritmus csak tökéletesen rugalmas ütközés szimulálására képes és
 különböző tömegű testeket sem kezel.
 
-\hypertarget{uxfctkuxf6zuxe9s-juxe1tuxe9kossal}{%
+
 \subsubsection{Ütközés
-játékossal}\label{uxfctkuxf6zuxe9s-juxe1tuxe9kossal}}
+játékossal}
 
 Játékosok ütközése során a játékfizika szempontjából kör-kör ütközésről
 beszélhetünk. Ilyenkor mindkét játékos mozgásban lehet, így az ütközés
@@ -1328,18 +1076,18 @@ A saját algoritmus hibáit ezek alapján javítottam, így már tökéletesen
 működik, és tetszőleges számú játékos esetén is jó. A játékosok
 ütközésének kezelésébe bele kellett építeni a zászlók kezelését is.
 
-\hypertarget{pontszerzuxe9s-uxe9s-annak-logikuxe1ja}{%
+
 \subsubsection{Pontszerzés és annak
-logikája}\label{pontszerzuxe9s-uxe9s-annak-logikuxe1ja}}
+logikája}
 
 A zászlószerzés a játék központi célja. Ezek kezelése összeolvad a játék
 fizikai számításaival. A programban zászlók is speciális körként
 jelennek meg. A zászló felvétele az inRange függvénynek köszönhető. Ez
 dönti el, hogy a körök összeérnek-e. A zászló elvétele ugyanígy működik.
 
-\hypertarget{felhasznuxe1luxf3i-dokumentuxe1ciuxf3}{%
+
 \section{Felhasználói
-dokumentáció}\label{felhasznuxe1luxf3i-dokumentuxe1ciuxf3}}
+dokumentáció}
 
 A játék böngészőből játszható. A játékhoz az tud csatlakozni, aki ismeri
 a címet, amin a játékba be lehet lépni. A játékhoz kapcsolódás menete a
@@ -1389,9 +1137,9 @@ kapcsolatos további információkat a TAB gomb lenyomásával érhetjük el.
 A játékból kilépéshez nem kell mást tenni, csak a böngészőablakot
 becsukni.
 
-\hypertarget{telepuxedtuxe9s-uxfczembe-helyezuxe9s}{%
+
 \section{Telepítés, üzembe
-helyezés}\label{telepuxedtuxe9s-uxfczembe-helyezuxe9s}}
+helyezés}
 
 A program üzembe helyezése kifejezetten egyszerű. A Node.js-ben írt
 programokat nem kell fordítani, ezért elég csak a forrásfájlokat
@@ -1430,8 +1178,8 @@ Ha ezeket az akadályokat sikerül elhárítani, akkor már semmi akadálya,
 hogy a program megfelelően működjön. A program a start.sh futtatásával,
 vagy a „node start.js'' parancs kiadásával futtatható.
 
-\hypertarget{uxf6sszefoglaluxe1s}{%
-\section{Összefoglalás}\label{uxf6sszefoglaluxe1s}}
+
+\section{Összefoglalás}
 
 A szakdolgozatomban egy ügyességi játék megvalósítását tűztem ki célul.
 Végig fontosnak tartottam, hogy ésszerű irányba haladjon a fejlesztés.
@@ -1450,8 +1198,8 @@ Hiszem, hogy értéket alkottam, és remélem, hogy sokaknak lesz lehetősége
 kipróbálni a játékomat. Számomra a játék létrehozásának minden lépése
 örömet szerzett.
 
-\hypertarget{irodalomjegyzuxe9k}{%
-\section{Irodalomjegyzék}\label{irodalomjegyzuxe9k}}
+
+\section{Irodalomjegyzék}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1497,8 +1245,8 @@ kipróbálni a játékomat. Számomra a játék létrehozásának minden lépés
   (2015.04.01)
 \end{enumerate}
 
-\hypertarget{melluxe9klet}{%
-\section{Melléklet}\label{melluxe9klet}}
+
+\section{Melléklet}
 
 Mellékletek:
 
