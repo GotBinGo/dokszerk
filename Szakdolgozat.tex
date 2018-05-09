@@ -400,7 +400,7 @@ hibaüzenetet látnánk a program lefutása után.
 
 Az általam választott platform is rendelkezik ilyen eszközökkel.
 Legelterjedtebb a Node Inspector. Ez webes felületen engedi programunk
-vizsgálatát. A mellékelt 2. ábrán látható a Node Iinspector webes
+vizsgálatát. A mellékelt \ref{fejl} ábrán látható a Node Iinspector webes
 felületének felépítése.
 \begin{figure}[ht]
 	\caption{Fejlesztőkörnyezet}
@@ -606,15 +606,11 @@ meg. Paraméterként megkapjuk az üzenetet is. A mellékelt példaprogram a
 fogadott üzenetet kiírja, és válaszként az üzenetet csupa nagybetűvel
 visszaküldi.
 
-3. ábra -- WebSocket szerver példa
-
 Ezt a programot könnyen tesztelhetjük is. Csak egy böngészőre van
 szükségünk. A programrészt akár a fejlesztői parancssorba is
 másolhatjuk.
 
-4. ábra -- Kapcsolódás és üzenetküldés
-
-Ha a kiszolgáló fut, akkor a 4. ábrán mutatott program sikeresen
+Ha a kiszolgáló fut, akkor a kódban mutatott program sikeresen
 kapcsolódik a helyi szerverhez, majd a „teszt üzenet''-et el is küldi. A
 kiszolgáló ezt fogadja, kiírja, és csupa nagybetűvel visszaküldi. A
 kliens ezt fogadja és feldob egy ablakot a „TESZT ÜZENET'' felirattal.
@@ -800,9 +796,7 @@ van megoldva.
 A JavaScript nyelvben lehetőség van jellemzők létrehozására, Ez viszont
 más nyelvekhez képes jelentősen kényelmetlenebb.
 
-5. ábra -- Jellemző létrehozása
-
-A 5. ábra mutatja a csoportkezelő egyik jellemzőjének létrehozását.
+A kód mutatja a csoportkezelő egyik jellemzőjének létrehozását.
 Ennek első lépése az elérni kívánt függvény létrehozása. Ezután az
 „Object.definePorperty'' metódussal készíthető el a kívánt jellemző. Az
 első paraméter a módosítani kívánt objektum, a végrehajtás után ennek az
@@ -885,14 +879,12 @@ A játék futása tehát a frissítéseknek köszönhető. A frissítési
 programrészt pontos időközönként kell meghívni. Erről a játék
 elindításakor létrehozott időzítő gondoskodik.
 
-6. ábra -- Időzítő készítése
-
 
 \subsubsection{A játék
 frissítése}
 
-A JavaScript alapértelmezetten támogatja az időzítőket. A mellékelt 6.
-ábrán látható ennek működése. A „timer'' a játék egy belső objektuma. A
+A JavaScript alapértelmezetten támogatja az időzítőket. A mellékelt kódban
+látható ennek működése. A „timer'' a játék egy belső objektuma. A
 „setInterval'' függvénnyel időzítőt készíthetünk, amely tetszőleges
 függvényt hív meg tetszőleges időközönként. Esetünkben a játék
 frissítésére szolgáló „update'' metódust 10 milliszekundumonként, tehát
@@ -1156,7 +1148,11 @@ kapcsolódáshoz szükséges fájlokat manuálisan kell beszerezni. Ez csak
 erősen korlátozott elérésű hálózatnál szükséges.
 
 
-
+\begin{figure}[ht]
+	\caption{Lobby}
+	\label{lobby}
+	\includegraphics[scale=0.29]{media/image10.png}
+\end{figure}
 
 
 
@@ -1165,7 +1161,7 @@ követően egészen a kapcsolat bontásáig lehetőségünk van üzeneteket
 küldeni. Az üzeneteket mindig csak az aktuális szoba felhasználói kapják
 meg. Belépés után mindenki az úgynevezett előszobába kerül. Innen már
 minden funkció egy kattintásnyira van. A felhasználói felület központi
-részén jelenik meg a fő tartalom. A 10. ábrán látható, hogy az
+részén jelenik meg a fő tartalom. A \ref{lobby} ábrán látható, hogy az
 előszobában listázva vannak az elérhető szobák. A szobákba a jobb
 oldalon lévő gombbal léphetünk. A felső gombbal saját szobát nyithatunk.
 A szobának a nevét bal oldali szövegdobozba írhatjuk.
@@ -1193,7 +1189,7 @@ A játékból kilépéshez nem kell mást tenni, csak a böngészőablakot
 becsukni.
 
 \begin{figure}[ht]
-	\caption{Kör-kör ütközés}
+	\caption{A játék}
 	\label{game}
 	\includegraphics[scale=0.385]{media/image11.png}
 \end{figure}
