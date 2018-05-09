@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[bibliography=totocnumbered]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -12,11 +12,8 @@
 
 \usepackage{parskip}
 
-
-
-
-\date{}
 \makeindex
+
 \begin{document}
 
 
@@ -281,7 +278,7 @@ kényelmetlen és lassú.
 
 Kapcsolódás a szerverhez
 
-A WebSocket technológia használható gyors kétirányú adatküldésre. A
+A WebSocket \cite{3} technológia használható gyors kétirányú adatküldésre. A
 protokoll célja, a http korlátozott kérés-válasz struktúrájából származó
 korlátozottságok és nagymennyiségű fejlécadat elkerülése. A WebsSocket
 kapcsolat a kiépüléstől a lezárás pillanatáig végig nyitva van, és
@@ -1201,50 +1198,14 @@ kipróbálni a játékomat. Számomra a játék létrehozásának minden lépés
 
 \section{Irodalomjegyzék}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  HTML Canvas --
-  \href{http://www.w3.org/TR/2dcontext/}{\emph{http://www.w3.org/TR/2dcontext/}}
-  (2015.04.01)
-\item
-  HTML beviteli típusok --
-  \href{http://www.w3schools.com/html/html_form_input_types.asp}{\emph{http://www.w3schools.com/html/html\_form\_input\_types.asp}}
-  (2015.04.01)
-\item
-  WebSocket protokoll --
-  \href{https://tools.ietf.org/html/rfc6455}{\emph{https://tools.ietf.org/html/rfc6455}}
-  (2015.04.01)
-\item
-  Rugalmas ütközés --
-  \href{http://en.wikipedia.org/wiki/Elastic_collision}{\emph{http://en.wikipedia.org/wiki/Elastic\_collision}}
-  (2015.04.01)
-\item
-  Kör-kör ütközés \emph{--
-  \href{http://stackoverflow.com/questions/345838/ball-to-ball-\%20collision-detection-and-handling}{http://stackoverflow.com/questions/345838/ball-to-ball-
-  collision-detection-and-handling}} (2015.04.01)
-\item
-  Az ütközés matematikája --
-  \emph{\url{http://archive.ncsa.illinois.edu/Classes/MATH198/townsend/math.html}}
-  (2015.04.01)
-\item
-  Websocket megvalósítások --
-  \href{http://stackoverflow.com/questions/16392260/which-websocket-library-to-use-with-node-js}{\emph{http://stackoverflow.com/questions/16392260/which-websocket-library-to-use-with-node-js}}
-  (2015.04.01)
-\item
-  JavaScript jellemzők --
-  \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty}{\emph{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Object/defineProperty}}
-  (2015.04.01)
-\item
-  Objektum orientált JavaScript programozás --
-  \emph{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript}}
-  (2015.04.01)
-\item
-  CSS transzformációk --
-  \emph{\url{http://www.w3schools.com/cssref/css3_pr_transform.asp}}
-  (2015.04.01)
-\end{enumerate}
+\nocite{*}
 
+\let\oldsection\section
+\let\Section\section 
+\def\section*#1{\Section{#1}} 
+\bibliographystyle{plain}
+\bibliography{hivatkozasok}
+\renewcommand{\section}[1]{\oldsection{#1}}
 
 \section{Melléklet}
 
