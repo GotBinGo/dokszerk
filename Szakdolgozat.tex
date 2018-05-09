@@ -18,8 +18,25 @@
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
 \usepackage{idxlayout}
-
+\usepackage[automake]{glossaries}
+\makeglossaries
 \makeindex
+
+
+
+
+\newglossaryentry{latex}
+{
+	name=latex,
+	description={Is a mark up language specially suited 
+		for scientific documents}
+}
+
+\newglossaryentry{maths}
+{
+	name=mathematics,
+	description={Mathematics is what mathematicians do}
+}
 
 \begin{document}
 
@@ -1300,6 +1317,10 @@ kipróbálni a játékomat. Számomra a játék létrehozásának minden lépés
 \bibliographystyle{plain}
 \bibliography{hivatkozasok}
 \printindex
+
+
+\printglossaries
+
 \renewcommand{\section}[1]{\oldsection{#1}}
 
 \section{Melléklet}
@@ -1323,6 +1344,7 @@ A CD tartalma:
 \item
   A Node.js futtatókörnyezet
 \end{itemize}
+
 
 
 \end{document}
