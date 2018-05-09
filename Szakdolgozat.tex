@@ -11,12 +11,12 @@
 \usepackage{graphicx,grffile}
 
 \usepackage{parskip}
-
+\usepackage[table]{xcolor}
 \usepackage{pgf,tikz,pgfplots}
 \pgfplotsset{compat=1.15}
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
-\usepackage{svg}
+
 
 \makeindex
 
@@ -114,7 +114,7 @@ elrabolt zászlót saját bázisáig juttatja egy játékos, azzal a csapat
 pontot szerez.
 
 
-\subsection{Specifikáció}
+\subsection{Specifikáció} \label{spec}
 
 
 \subsubsection{A játék alapötlete}
@@ -131,7 +131,7 @@ ennél is fontosabb és még több teret ad a versenyszerűségnek.
 
 
 \subsubsection{A játék bemutatása}
-
+\label{jatek}
 A megvalósítani kívánt játék egy négyzetes pályán játszható. A pályán
 megtalálható a csapatok bázisa, ezt a csapat zászlója jelöli. A
 játékosok csatlakozás után egyből a küzdőtéren találják magukat. A
@@ -193,7 +193,7 @@ háromszög kitöltési színe a csapat színe.
 \subsection{Elvárások a játékkal
 szemben}
 
-A célom, hogy a játékot minél több felhasználó kipróbálhassa,
+A \pageref{jatek} oldalon kifejtetteket követve célom, hogy a játékot minél több felhasználó kipróbálhassa,
 élvezhesse, a már általa megszokott környezetben. A játék elsősorban
 asztali számítógépekre készül, de a felsőkategóriás hordozható
 eszközökön is elvárható a megfelelő működés. Elsődleges a felhasználó
@@ -625,7 +625,8 @@ rendelhetünk és az üzenetet fel is dolgozhatjuk.
 adminisztrálása}
 
 A kapcsolatok kialakítása megoldott, de ez még nem sok. A kapcsolatokat
-azonosítani kell. Minden egyes kapcsolat új felhasználót hoz létre. A
+azonosítani kell. Minden egyes kapcsolat új felhasználót hoz létre Az alábbi 
+\ref{methods} táblázat alapján kell indítani a kérést. A
 felhasználóhoz egyéb adatok is tartoznak, így például annak neve.
 
 Az üzeneteket elküldés előtt megcímezzük. A címzett esetünkben nem a
@@ -634,6 +635,20 @@ azonosítóval rendelkezik. A felhasználókat azonosító alapján találjuk
 meg. Az azonosító egy számlálóból származik. Ez gyakorlatban garantálja,
 hogy nem lesz két felhasználó ugyanazzal az azonosítóval.
 
+\begin{table}[ht]
+	\centering
+	\caption{HTTP metódusok}
+	\label{methods}
+	\begin{tabular}{|l|l|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		{\color[HTML]{000000} Metódus} & {\color[HTML]{000000} Jelentés} \\ \hline
+		GET                            & Adat lekérése                   \\ \hline
+		POST                           & Adat beszúrása                  \\ \hline
+		PUT                            & Adat frissítése                 \\ \hline
+		DELETE                         & Adat törlése                    \\ \hline
+	\end{tabular}
+\end{table}
 
 \subsubsection{Kapcsolatzárás}
 
@@ -948,7 +963,7 @@ A játékhoz csak néhány elemre van szükség. Ezek mindegyike meghatározott
 tulajdonságokkal bír. Legfontosabbak a zászlók. Ezeknek egyik jellemzője
 a tulajdonos csapat azonosítója. Játékelemek még a játékban lévő falak,
 körök és egyéb akadályok. Ezek mindegyike eltérő módon van kezelve mind
-a szerver, mind a kliens oldalán.
+a szerver, mind a kliens oldalán. De fontos, hogy a játék a \ref{spec} pontban említetteknek megfeleljen.
 
 
 \subsubsection{Megjelenítés a
@@ -1081,15 +1096,31 @@ Az ilyen ütközést és kimenetelét átgondolni is bonyolultabb, így azt
 leprogramozni is nehezebb, mint a fallal történő ütközést.
 
 Közvetlen ütközés során a mozgásban lévő egységek mozgási energiája
-megmarad, áttevődik. Ha egy álló testnek ütközik valami, akkor az addig
+megmarad, áttevődik. Ahogyan a \ref{kor:utk} ábra is mutaja, ha egy 
+álló testnek ütközik valami, akkor az addig
 álló test mozgásba lendül és az addig mozgó test megáll. Amennyiben egy
 lassan mozgó testet hátulról egy gyorsabban mozgó test löki meg, akkor
 az ütközés után az első test gyorsabban, a hátsó test lassabban fog
 mozogni. Így gyakorlatilag megcserélődik a mozgások irányvektora.
 
+
+\begin{figure}[ht]
+	\caption{Az eltrítési szög kiszámítása}
+	\label{kepletcsoport}
+	\begin{eqnarray}
+	\label{eq:group_first}
+	\gamma_v & = & atan2(y_{21}, x_{21}) \\
+	\label{eq:group_second}
+	\gamma & = & \gamma_{xv} - \gamma_v \\
+	r_d & = & d \cdot sin(\gamma)/r_{12} \\
+	\alpha & = & sin(r_d)
+	\end{eqnarray}
+\end{figure}
+
 Egy másik, problémásabb eset, amikor a testek csak „súrolják'' egymást.
 Ilyenkor az ütközés után a testek mozgásának vektora kiesik az ütközési
-síkra merőleges egyenesből.
+síkra merőleges egyenesből. Ennek kiszámításához hasznos \ref{eq:group_first}-ben használt
+ atan2 függvény. A következő lépésben a kapott szöget kivonjuk az irányvektorból. Ez látható \ref{eq:group_second} sorban.
 
 \begin{figure}[ht]
 	\caption{Kör-kör ütközés}
@@ -1115,13 +1146,15 @@ Némi kutatás után több eltérő megoldást is találtam.
 \begin{figure}[ht]
 	\caption{Sebesség ütközés után, tömegtől függően}
 	\label{keplet}
-\begin{eqnarray}
-v_1=\frac{u_1\cdot (m_1 - m_2) + 2m_2 u_2}{m_1 + m_2} \\
+\begin{equation}
+\label{eq:single}
+v_1=\frac{u_1\cdot (m_1 - m_2) + 2m_2 u_2}{m_1 + m_2} 
 v_2=\frac{u_2\cdot (m_2 - m_1) + 2m_1 u_1}{m_1 + m_2}
-\end{eqnarray}
+\end{equation}
 \end{figure}
 
-A saját algoritmus hibáit ezek alapján javítottam, így már tökéletesen
+
+A saját algoritmus hibáit a \ref{eq:single} képlet alapján javítottam, így már tökéletesen
 működik, és tetszőleges számú játékos esetén is jó. A játékosok
 ütközésének kezelésébe bele kellett építeni a zászlók kezelését is.
 
