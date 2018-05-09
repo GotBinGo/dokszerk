@@ -12,6 +12,12 @@
 
 \usepackage{parskip}
 
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{svg}
+
 \makeindex
 
 \begin{document}
@@ -333,15 +339,16 @@ a böngésző saját stílusbeállításait használhatjuk.
 
 \subsubsection{Felületi tervek}
 
-A felület egyszerű lesz. Az 1. ábrán látható az alapvető elosztás, ami
+A felület egyszerű lesz. Az \ref{vaz} ábrán látható az alapvető elosztás, ami
 magában foglal egy alsó panelt, ami tartalmazza szoba tagjainak listáját
 és a szoba üzeneteinek. A felület legnagyobb részét a játékterület
 foglalja el.
 
-\includegraphics[width=5.375in,height=3.73238in]{media/image1.png}
-
-1. ábra -- A felhasználói felület terve
-
+\begin{figure}[ht]
+	\caption{Az alkalmazás drótváza}
+	\label{vaz}
+	\includegraphics[scale=0.42]{media/image1.png}
+\end{figure}
 
 \section{Megvalósítás
 előkészületei}
@@ -395,10 +402,11 @@ Az általam választott platform is rendelkezik ilyen eszközökkel.
 Legelterjedtebb a Node Inspector. Ez webes felületen engedi programunk
 vizsgálatát. A mellékelt 2. ábrán látható a Node Iinspector webes
 felületének felépítése.
-
-\includegraphics[width=5.33333in,height=3.33189in]{media/image2.png}
-
-2. ábra -- Node Inspector webes felület
+\begin{figure}[ht]
+	\caption{Fejlesztőkörnyezet}
+	\label{fejl}
+\includegraphics[scale=0.9]{media/image2.png}
+\end{figure}
 
 
 \subsubsection{Node Package Manager}
@@ -1000,17 +1008,64 @@ ennek a vizsgálatnak az az eredménye, hogy a játékos ütközött, akkor azt
 kezelni kell. Az ütközés kezeléséhez át kell gondolni, hogy hogyan is
 ütközött az elem és hogy mi a várt eredmény.
 
-\includegraphics[width=5.51181in,height=1.89375in]{media/image3.png}
+\begin{figure}[ht]
+	\caption{A mozgásvektor számítása}
+	\label{kor:mozg}
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1.85,xscale=1.85]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	\draw    (99.83, 79.5) rectangle (180.75, 159)   ;
+	\draw    (120.48,99.8) -- (169.83,130.5) ;
+	\draw [shift={(169.83,130.5)}, rotate = 211.89] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ]   (0,0) .. controls (3.31,-0.3) and (6.95,-1.4) .. (10.93,-3.29)(0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	\draw    (120.48, 99.8) circle [x radius= 9.13, y radius= 9]  ;
+	\draw    (151.18,88.85) -- (151.32,153.15) ;
+	
+	
+	\end{tikzpicture}
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1.85,xscale=1.85]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	\draw    (99.83, 79.5) rectangle (180.75, 159)   ;
+	\draw    (120.48,99.8) -- (169.83,130.5) ;
+	\draw [shift={(169.83,130.5)}, rotate = 211.89] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ]   (0,0) .. controls (3.31,-0.3) and (6.95,-1.4) .. (10.93,-3.29)(0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	\draw    (120.48, 99.8) circle [x radius= 9.13, y radius= 9]  ;
+	\draw    (151.18,88.85) -- (151.32,153.15) ;
+	
+	
+	\draw    (151.07,119.04) -- (101.43,149.43) ;
+	\draw [shift={(101.43,149.43)}, rotate = 328.53] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ]   (0,0) .. controls (3.31,-0.3) and (6.95,-1.4) .. (10.93,-3.29)(0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	
+	\end{tikzpicture}
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1.85,xscale=1.85]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	\draw    (99.83, 79.5) rectangle (180.75, 159)   ;
+	\draw    (120.48,99.8) -- (169.83,130.5) ;
+	\draw [shift={(169.83,130.5)}, rotate = 211.89] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ]   (0,0) .. controls (3.31,-0.3) and (6.95,-1.4) .. (10.93,-3.29)(0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	\draw    (120.48, 99.8) circle [x radius= 9.13, y radius= 9]  ;
+	\draw    (151.18,88.85) -- (151.32,153.15) ;
+	
+	
+	\draw    (151.07,119.04) -- (132.56,130.73) ;
+	\draw [shift={(132.56,130.73)}, rotate = 327.74] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ]   (0,0) .. controls (3.31,-0.3) and (6.95,-1.4) .. (10.93,-3.29)(0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	
+	\end{tikzpicture}
+\end{figure}
 
-7. ábra -- Pontszerű ütközés fallal
-
-A 7. ábrán a pontszerű ütközés számításának lépéseit lehet nyomon
+A \ref{kor:mozg} ábrán a pontszerű ütközés számításának lépéseit lehet nyomon
 követni. Elsőként azt kell észrevenni, hogy ütközés fog bekövetkezni.
 Ütközés akkor következik be, ha egy mozgó objektum útjában egy másik
-objektum áll. A 7. ábrának az első lépésében láthatjuk, hogy az
+objektum áll. A \ref{kor:mozg} ábrának az első lépésében láthatjuk, hogy az
 irányvektor metszi a falat. Ennek a feltételnek a bekövetkezésekor fut
 le a visszapattanás logikája. Ez kiszámolja, hogy az új vektor merre
-mutat. Ezt a 7. ábra második lépése mutatja. Itt látszik a mozgó test
+mutat. Ezt a \ref{kor:mozg} ábra második lépése mutatja. Itt látszik a mozgó test
 ütközés utáni irányvektora is. A harmadik lépés pedig a játékelem
 ütközés utáni pozícióját mutatja. Ezt az ütközési felületen „túllógó''
 vektor ütközési felületre való tükrözésével kapjuk meg.
@@ -1044,9 +1099,11 @@ Egy másik, problémásabb eset, amikor a testek csak „súrolják'' egymást.
 Ilyenkor az ütközés után a testek mozgásának vektora kiesik az ütközési
 síkra merőleges egyenesből.
 
-\includegraphics[width=5.51181in,height=1.89525in]{media/image4.png}
-
-8. ábra -- Körök rugalmas ütközése
+\begin{figure}[ht]
+	\caption{Kör-kör ütközés}
+	\label{kor:utk}
+	\includegraphics[scale=0.6]{media/image8.eps}
+\end{figure}
 
 A helyes értékek kiszámításához az irányvektorokat az ütközési sík és az
 arra merőleges egyenes komponenseiként kell felírni, majd az ütközési
@@ -1063,11 +1120,14 @@ beszélhetünk. Ilyenkor mindkét játékos mozgásban lehet, így az ütközés
 gyakorlati megvalósítása igazi kihívássá válik. A már bemutatott
 klasszikus ütközés első megvalósítási kísérlete nem hozott sok sikert.
 Némi kutatás után több eltérő megoldást is találtam.
-
-\includegraphics[width=2.42083in,height=0.48611in]{media/image5.png}
-\includegraphics[width=2.42083in,height=0.48611in]{media/image6.png}
-
-9. ábra -- Rugalmas ütközés számítása
+\begin{figure}[ht]
+	\caption{Sebesség ütközés után, tömegtől függően}
+	\label{keplet}
+\begin{eqnarray}
+v_1=\frac{u_1\cdot (m_1 - m_2) + 2m_2 u_2}{m_1 + m_2} \\
+v_2=\frac{u_2\cdot (m_2 - m_1) + 2m_1 u_1}{m_1 + m_2}
+\end{eqnarray}
+\end{figure}
 
 A saját algoritmus hibáit ezek alapján javítottam, így már tökéletesen
 működik, és tetszőleges számú játékos esetén is jó. A játékosok
@@ -1095,8 +1155,10 @@ felkeresve is csatlakozhatunk a játékhoz. A harmadik eshetőség, hogy a
 kapcsolódáshoz szükséges fájlokat manuálisan kell beszerezni. Ez csak
 erősen korlátozott elérésű hálózatnál szükséges.
 
-\includegraphics[width=5.90551in,height=3.59853in]{media/image7.png}10.
-ábra -- A felület belépés után
+
+
+
+
 
 Sikeres kapcsolat esetén betöltődnek az oldal interaktív részei is. Ezt
 követően egészen a kapcsolat bontásáig lehetőségünk van üzeneteket
@@ -1118,11 +1180,7 @@ gombbal továbbítható.
 mozoghat, gyakorolhat, amíg a meccs el nem kezdődik. A játszma akkor
 indul, ha a játékosok többsége készen áll a küzdelemre.
 
-\includegraphics[width=5.90556in,height=3.82737in]{media/image8.png}
-
-11. ábra -- A játék
-
-A 11. ábrán látható maga a játék. A csapatok összesített pontszáma
+A \ref{game} ábrán látható maga a játék. A csapatok összesített pontszáma
 felül, baloldalon alul pedig a játékosokra lebontva látható a szerzett
 pontok száma. A baloldali információs fülön megjelenik még egy kilépés
 gomb is. Ezzel a felhasználó elhagyhatja a szobát.
@@ -1133,6 +1191,12 @@ kapcsolatos további információkat a TAB gomb lenyomásával érhetjük el.
 
 A játékból kilépéshez nem kell mást tenni, csak a böngészőablakot
 becsukni.
+
+\begin{figure}[ht]
+	\caption{Kör-kör ütközés}
+	\label{game}
+	\includegraphics[scale=0.385]{media/image11.png}
+\end{figure}
 
 
 \section{Telepítés, üzembe
@@ -1195,8 +1259,6 @@ Hiszem, hogy értéket alkottam, és remélem, hogy sokaknak lesz lehetősége
 kipróbálni a játékomat. Számomra a játék létrehozásának minden lépése
 örömet szerzett.
 
-
-\section{Irodalomjegyzék}
 
 \nocite{*}
 
