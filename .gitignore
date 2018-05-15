@@ -1,7 +1,6 @@
 *.glg
 *.gls
 *.ist
-*.pdf
 *.out
 *.toc
 *.gz
@@ -11,3 +10,10 @@
 *.acn
 *.acr
 *.alg
+*.bbl
+*.blg
+*.glo
+*.ilg
+*.ind
+*.zip
+
