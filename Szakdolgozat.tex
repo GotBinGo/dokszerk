@@ -23,7 +23,8 @@
 \makeindex
 \makeglossaries
 
-
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
 
 \newglossaryentry{canvas}
 {
@@ -34,6 +35,21 @@
 {
 	name=JavaScript,
 	description={Webes programozási nyelv}
+}
+\newglossaryentry{chrome}
+{
+	name=chrome,
+	description={Googl által fejlesztett webböngésző}
+}
+\newglossaryentry{x86}
+{
+	name=x86,
+	description={Elterjedt porcesszor utasításkészlet}
+}
+\newglossaryentry{websocket}
+{
+	name=WebSocket,
+	description={HTTP szabványos, full-duplex kommunikációs megoldás}
 }
 
 
@@ -198,7 +214,7 @@ is szükség van.
 \subsubsection{Megjelenítés módja}
 
 A felület és játék stílusa minden ponton az egyszerű kinézetre
-törekszik. A dizájn jellemzően néhány előre kiválasztott színnel
+törekszik. A dizájn\index{dizájn} jellemzően néhány előre kiválasztott színnel
 dolgozik. A választott színek általában semlegesek, így például a szürke
 árnyalatai sok teret kapnak. A játék színei szintén egyszerűek. A
 játékban használt árnyalatok az oldalon máshol is megjelennek. A
@@ -215,7 +231,7 @@ háromszög kitöltési színe a csapat színe.
 \subsection{Elvárások a játékkal
 szemben}
 
-A \pageref{jatek} oldalon kifejtetteket követve célom, hogy a játékot minél több felhasználó kipróbálhassa,
+\Apageref{jatek}. oldalon kifejtetteket követve célom, hogy a játékot minél több felhasználó kipróbálhassa,
 élvezhesse, a már általa megszokott környezetben. A játék elsősorban
 asztali számítógépekre készül, de a felsőkategóriás hordozható
 eszközökön is elvárható a megfelelő működés. Elsődleges a felhasználó
@@ -239,13 +255,13 @@ felhasználónak nem lesz gondja a teljesítménnyel.
 \subsection{Fejlesztési platform
 megválasztása}
 
-A böngészős alkalmazásunk programozásához több megoldás közül
+A böngészős\index{böngészős} alkalmazásunk programozásához több megoldás közül
 választhatunk. Lehetőségünk van kiegészítőket használni például Adobe
 Flash, vagy Microsoft Silverlight. Ezeket a böngésző nem tartalmazza,
 hanem előre telepítendőek. Ezek elavulttá váltak a böngészőkbe épített
 \gls{javascript} futtatókörnyezet fejlődésével. Ez azt jelenti, hogy csakis
 egy tetszőleges modern böngészőt például a Mozilla Firefox-ot vagy a
-Google Chrome\index{Chrome}-ot kell beszereznünk, ha még nem tettük. Ez tehát a
+Google \Gls{chrome}-ot kell beszereznünk, ha még nem tettük. Ez tehát a
 felhasználói oldal.
 
 A kiszolgáló környezet megválasztása már nehezebb kérdés. Sok szempontot
@@ -277,7 +293,7 @@ nagyságrendekkel egyszerűbben elvégezhetőek.
 \subsubsection{Node.js}
 
 A Node.js egy szerver-oldali \gls{javascript} alapú futtatókörnyezet. Ez
-Chrome\index{Chrome} V8 \gls{javascript} motorjára épül, amely már évek óta a legjobban
+\Gls{chrome} V8 \gls{javascript} motorjára épül, amely már évek óta a legjobban
 teljesítő \gls{javascript}-motor. Sikerét jórészt annak köszönheti, hogy a
 programot közvetlenül gépi kódra fordítja, így nagyságrendekkel javul a
 teljesítmény az értelmezett, vagy a bájt kódra fordított megoldásokkal
@@ -296,7 +312,7 @@ még, hogy mind Windows, Linux és Macintosh rendszereken egyaránt
 használható.
 
 
-\subsubsection{WebSocket}
+\subsubsection{Websocket}
 
 Valósidejű alkalmazásokhoz elengedhetetlen a gyors kétirányú
 adatkapcsolat. A böngészők eredetileg, http kéréseket küldtek, majd az
@@ -306,16 +322,16 @@ kényelmetlen és lassú.
 
 Kapcsolódás a szerverhez
 
-A WebSocket\index{WebSocket} \cite{3} technológia használható gyors kétirányú adatküldésre. A
+A \gls{websocket} \cite{3} technológia használható gyors kétirányú adatküldésre. A
 protokoll célja, a http korlátozott kérés-válasz struktúrájából származó
-korlátozottságok és nagymennyiségű fejlécadat elkerülése. A WebsSocket
+korlátozottságok és nagymennyiségű fejlécadat elkerülése. A \gls{websocket}
 kapcsolat a kiépüléstől a lezárás pillanatáig végig nyitva van, és
 készen áll adatok küldésére és fogadására. A modern böngészők mindegyike
 támogatja a technológiát.
 
 A kapcsolat létrejötte
 
-A WebSocket\index{WebSocket} szerver megadott \acrshort{tcp} porton hallgat és várja a
+A \gls{websocket} szerver megadott \acrshort{tcp} porton hallgat és várja a
 kapcsolatokat. A kapcsolatot tehát a kliens kezdeményezi úgy, hogy
 kérést küld a szervernek, melyben kéri a kapcsolat felállítását. Ez egy
 HTTP GET Upgrade kérés formájában történik. Ha ezt a szerver ezt
@@ -348,7 +364,7 @@ a legkönnyebb folyamatos teszteléssel kiszűrni. A tesztelést többféle
 böngészővel kell végezni.
 
 
-\subsubsection{HTML5 \Gls{canvas}}
+\subsubsection{HTML5 Canvas}
 
 A böngészők régóta képesek grafikai elemek megjelenítésére. Az elmúlt
 években ezen a téren jelentős előrelépések voltak mind
@@ -361,7 +377,7 @@ a böngésző saját stílusbeállításait használhatjuk.
 
 \subsubsection{Felületi tervek}
 
-A felület egyszerű lesz. Az \ref{vaz} ábrán látható az alapvető elosztás, ami
+A felület egyszerű lesz. \Aref{vaz}. ábrán látható az alapvető elosztás, ami
 magában foglal egy alsó panelt, ami tartalmazza szoba tagjainak listáját
 és a szoba üzeneteinek. A felület legnagyobb részét a játékterület
 foglalja el.
@@ -387,7 +403,7 @@ is beszerezhetünk, ebben az esetben nincs szükség rendszergazda
 jóváhagyására, de számolnunk kell apróbb kellemetlenségekkel.
 
 A teszteléshez és a felület megvalósításához Mozilla Firefox-ot és
-Google Chrome\index{Chrome}-ot is használok. Így biztosítani tudom, hogy mindkét
+Google \Gls{chrome}-ot is használok. Így biztosítani tudom, hogy mindkét
 böngészőben minden zökkenőmentesen működik. Az internetezők több mint
 60\%-a is e két böngésző egyikét használja.
 
@@ -422,7 +438,7 @@ hibaüzenetet látnánk a program lefutása után.
 
 Az általam választott platform is rendelkezik ilyen eszközökkel.
 Legelterjedtebb a Node Inspector. Ez webes felületen engedi programunk
-vizsgálatát. A mellékelt \ref{fejl} ábrán látható a Node Iinspector webes
+vizsgálatát. A mellékelt \ref{fejl}. ábrán látható a Node Iinspector webes
 felületének felépítése.
 \begin{figure}[ht]
 	\caption{Fejlesztőkörnyezet}
@@ -585,12 +601,12 @@ technológiákat csak részben ismertem, így némi tapasztalatszerzésre volt
 szükségem.
 
 
-\subsection{WebSocket kapcsolat
+\subsection{Websocket kapcsolat
 felállítása}
 
 A program kulcsfontosságú eleme a hálózati kapcsolat. A játék
 működéséhez valós idejű kapcsolat szükséges. A választás a legtöbb
-böngésző által támogatott WebSocket\index{WebSocket}-re esett. Ez viszont nem minden. A
+böngésző által támogatott \gls{websocket}-re esett. Ez viszont nem minden. A
 kiszolgáló megvalósításánál megválaszthatjuk, hogy melyik megvalósítást
 használjuk. A választék széles, mindegyiknek megvannak a sajátosságai.
 
@@ -648,7 +664,7 @@ adminisztrálása}
 
 A kapcsolatok kialakítása megoldott, de ez még nem sok. A kapcsolatokat
 azonosítani kell. Minden egyes kapcsolat új felhasználót hoz létre Az alábbi 
-\ref{methods} táblázat alapján kell indítani a kérést. A
+\ref{methods}. táblázat alapján kell indítani a kérést. A
 felhasználóhoz egyéb adatok is tartoznak, így például annak neve.
 
 Az üzeneteket elküldés előtt megcímezzük. A címzett esetünkben nem a
@@ -712,7 +728,7 @@ felhasználó objektumra lesz szükség.
 
 \subsection{A parancsértelmező}
 
-A parancsok mit sem érnek, ha nincsenek végrehajtva. A parancsértelmező
+A parancsok mit sem érnek, ha nincsenek végrehajtva. A parancsértelmező\index{parancsértelmező}
 gondoskodik arról, hogy a felhaszanáló által kiadott parancs a felelős
 modulhoz jusson, a megfelelő paraméterekkel. Lényegében csak parancsok
 szintaxisát rendeli programrészekhez.
@@ -985,7 +1001,7 @@ A játékhoz csak néhány elemre van szükség. Ezek mindegyike meghatározott
 tulajdonságokkal bír. Legfontosabbak a zászlók. Ezeknek egyik jellemzője
 a tulajdonos csapat azonosítója. Játékelemek még a játékban lévő falak,
 körök és egyéb akadályok. Ezek mindegyike eltérő módon van kezelve mind
-a szerver, mind a kliens oldalán. De fontos, hogy a játék a \ref{spec} pontban említetteknek megfeleljen.
+a szerver, mind a kliens oldalán. De fontos, hogy a játék \aref{spec}. pontban említetteknek megfeleljen.
 
 
 \subsubsection{Megjelenítés a
@@ -1020,7 +1036,7 @@ menetét.
 
 \subsubsection{Rugalmas ütközés}
 
-A játék működéséhez kulcsfontosságú az ütközések helyes kezelése. A
+A játék működéséhez kulcsfontosságú az ütközések\index{ütközések} helyes kezelése. A
 rugalmas ütküzés pontos szimulálását kellett megoldanom. Természetesen
 itt érvényes az energiamegmaradás törvénye, tehát az ütközés során
 mozgási energia el nem vész, csak áttevődik. A játékban az objektumok
@@ -1088,13 +1104,13 @@ kezelni kell. Az ütközés kezeléséhez át kell gondolni, hogy hogyan is
 	\end{tikzpicture}
 \end{figure}
 
-A \ref{kor:mozg} ábrán a pontszerű ütközés számításának lépéseit lehet nyomon
+\Aref{kor:mozg}. ábrán a pontszerű ütközés számításának lépéseit lehet nyomon
 követni. Elsőként azt kell észrevenni, hogy ütközés fog bekövetkezni.
 Ütközés akkor következik be, ha egy mozgó objektum útjában egy másik
-objektum áll. A \ref{kor:mozg} ábrának az első lépésében láthatjuk, hogy az
+objektum áll. Aref{kor:mozg}. ábrának az első lépésében láthatjuk, hogy az
 irányvektor metszi a falat. Ennek a feltételnek a bekövetkezésekor fut
 le a visszapattanás logikája. Ez kiszámolja, hogy az új vektor merre
-mutat. Ezt a \ref{kor:mozg} ábra második lépése mutatja. Itt látszik a mozgó test
+mutat. Ezt \aref{kor:mozg}. ábra második lépése mutatja. Itt látszik a mozgó test
 ütközés utáni irányvektora is. A harmadik lépés pedig a játékelem
 ütközés utáni pozícióját mutatja. Ezt az ütközési felületen „túllógó''
 vektor ütközési felületre való tükrözésével kapjuk meg.
@@ -1137,8 +1153,8 @@ r_d & = & d \cdot sin(\gamma)/r_{12} \\
 
 Egy másik, problémásabb eset, amikor a testek csak „súrolják'' egymást.
 Ilyenkor az ütközés után a testek mozgásának vektora kiesik az ütközési
-síkra merőleges egyenesből. Ennek kiszámításához hasznos \ref{eq:group_first}-ben használt
- atan2 függvény. A következő lépésben a kapott szöget kivonjuk az irányvektorból. Ez látható \ref{eq:group_second} sorban.
+síkra merőleges egyenesből. Ennek kiszámításához hasznos \aref{eq:group_first}. képletben látható
+ atan2 függvény. A következő lépésben a kapott szöget kivonjuk az irányvektorból. Ez látható \aref{eq:group_second}. sorban.
 
 \begin{figure}[ht]
 	\caption{Kör-kör ütközés}
@@ -1172,7 +1188,7 @@ v_2=\frac{u_2\cdot (m_2 - m_1) + 2m_1 u_1}{m_1 + m_2}
 
 
 
-A saját algoritmus hibáit a \ref{eq:single} képlet alapján javítottam, így már tökéletesen
+A saját algoritmus hibáit \aref{eq:single}. képlet alapján javítottam, így már tökéletesen
 működik, és tetszőleges számú játékos esetén is jó. A játékosok
 ütközésének kezelésébe bele kellett építeni a zászlók kezelését is.
 
@@ -1212,7 +1228,7 @@ követően egészen a kapcsolat bontásáig lehetőségünk van üzeneteket
 küldeni. Az üzeneteket mindig csak az aktuális szoba felhasználói kapják
 meg. Belépés után mindenki az úgynevezett előszobába kerül. Innen már
 minden funkció egy kattintásnyira van. A felhasználói felület központi
-részén jelenik meg a fő tartalom. A \ref{lobby} ábrán látható, hogy az
+részén jelenik meg a fő tartalom. \Aref{lobby}. ábrán látható, hogy az
 előszobában listázva vannak az elérhető szobák. A szobákba a jobb
 oldalon lévő gombbal léphetünk. A felső gombbal saját szobát nyithatunk.
 A szobának a nevét bal oldali szövegdobozba írhatjuk.
@@ -1227,7 +1243,7 @@ gombbal továbbítható.
 mozoghat, gyakorolhat, amíg a meccs el nem kezdődik. A játszma akkor
 indul, ha a játékosok többsége készen áll a küzdelemre.
 
-A \ref{game} ábrán látható maga a játék. A csapatok összesített pontszáma
+\Aref{game}. ábrán látható maga a játék. A csapatok összesített pontszáma
 felül, baloldalon alul pedig a játékosokra lebontva látható a szerzett
 pontok száma. A baloldali információs fülön megjelenik még egy kilépés
 gomb is. Ezzel a felhasználó elhagyhatja a szobát.
@@ -1250,7 +1266,7 @@ becsukni.
 helyezés}
 
 A program üzembe helyezése kifejezetten egyszerű. A Node.js-ben írt
-programokat nem kell fordítani, ezért elég csak a forrásfájlokat
+programokat nem kell fordítani, ezért elég csak a forrásfájlokat \index{forrásfájlok}
 megszerezni. A támogatott operációs rendszerek mindegyikén a node
 futtatható állományt kell meghívni a futtatni kívánt forrás fájlal. Ez a
 program már képes további forrásfájlok, modulok betöltésére.
@@ -1264,7 +1280,7 @@ A Node.js Windows rendszerre a nodejs.org/downloads-ról letölthető .exe
 és .msi telepítő csomag formában is. Amennyiben rendszergazda joggal nem
 rendelkezünk, akkor ezek egyikének sem vesszük hasznát. Az
 alapértelmezett beállításokkal való telepítés után a
-C:\textbackslash{}Program Files (x86\index{x86})\textbackslash{}nodejs mappában
+C:\textbackslash{}Program Files (\gls{x86})\textbackslash{}nodejs mappában
 találjuk a futtatókörnyezet fájljait, így egy node.exe-t is. A
 programunk futtatásához ezt a programot kell, meghívni a megfelelő
 fájlal.
