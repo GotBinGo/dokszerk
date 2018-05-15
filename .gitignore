@@ -8,3 +8,6 @@
 *.aux
 *.idx
 *.log
+*.acn
+*.acr
+*.alg

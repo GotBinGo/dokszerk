@@ -18,25 +18,29 @@
 \usepackage{mathrsfs}
 \usetikzlibrary{arrows}
 \usepackage{idxlayout}
-\usepackage[automake]{glossaries}
-\makeglossaries
+\usepackage[acronym]{glossaries}
+
 \makeindex
+\makeglossaries
 
 
 
-
-\newglossaryentry{latex}
+\newglossaryentry{canvas}
 {
-	name=latex,
-	description={Is a mark up language specially suited 
-		for scientific documents}
+	name=canvas,
+	description={Vászon amire rajzolni lehet}
+}
+\newglossaryentry{javascript}
+{
+	name=JavaScript,
+	description={Webes programozási nyelv}
 }
 
-\newglossaryentry{maths}
-{
-	name=mathematics,
-	description={Mathematics is what mathematicians do}
-}
+
+\newacronym{tcp}{TCP}{Transmission Control Protocoll}
+\newacronym{ctf}{CTF}{Capture The Flag}
+\newacronym{moba}{MOBA}{Multiplayer online battle arena}
+\newacronym{wasd}{WASD}{A billentyűzet W, A, S és D gombjai, ami megfeleltethető a fel, balra, le, jobbra nyilaknak}
 
 \begin{document}
 
@@ -102,7 +106,7 @@ leglényegesebb játéktípust ismertetem.
 
 
 \subsubsection{Többjátékos online harci aréna
-(MOBA)}
+(\acrshort{moba})}
 
 A játékosok csapatokat alkotnak és egy kijelölt területen, az
 „arénában'' küzdenek meg. A játék célja lehet egyes pontok elfoglalása,
@@ -120,7 +124,7 @@ toborzás sokkal fontosabb.
 
 
 \subsubsection{Vidd haza a zászlót
-(CTF)}
+(\acrshort{ctf})}
 
 Mindkét csapat a bázisán lévő zászlót védi és az ellenfél zászlóját
 próbálja megszerezni. A játékosok szabadon mozognak a pályán, de az
@@ -239,7 +243,7 @@ A böngészős alkalmazásunk programozásához több megoldás közül
 választhatunk. Lehetőségünk van kiegészítőket használni például Adobe
 Flash, vagy Microsoft Silverlight. Ezeket a böngésző nem tartalmazza,
 hanem előre telepítendőek. Ezek elavulttá váltak a böngészőkbe épített
-JavaScript futtatókörnyezet fejlődésével. Ez azt jelenti, hogy csakis
+\gls{javascript} futtatókörnyezet fejlődésével. Ez azt jelenti, hogy csakis
 egy tetszőleges modern böngészőt például a Mozilla Firefox-ot vagy a
 Google Chrome\index{Chrome}-ot kell beszereznünk, ha még nem tettük. Ez tehát a
 felhasználói oldal.
@@ -258,7 +262,7 @@ technológiák}
 
 \subsubsection{Irányelvek}
 
-A JavaScript nyelvben lehetőség van az objektumorientált programozásra.
+A \gls{javascript} nyelvben lehetőség van az objektumorientált programozásra.
 Ez nagyon ajánlott, de nem kötelezettség. A probléma részekre bontása
 segíti a megértést. Egymással szoros kapcsolatban lévő blokkokat
 alakíthatunk ki. Egy probléma objektumorientált megoldásának elkészítése
@@ -272,9 +276,9 @@ nagyságrendekkel egyszerűbben elvégezhetőek.
 
 \subsubsection{Node.js}
 
-A Node.js egy szerver-oldali JavaScript alapú futtatókörnyezet. Ez
-Chrome\index{Chrome} V8 JavaScript motorjára épül, amely már évek óta a legjobban
-teljesítő JavaScript-motor. Sikerét jórészt annak köszönheti, hogy a
+A Node.js egy szerver-oldali \gls{javascript} alapú futtatókörnyezet. Ez
+Chrome\index{Chrome} V8 \gls{javascript} motorjára épül, amely már évek óta a legjobban
+teljesítő \gls{javascript}-motor. Sikerét jórészt annak köszönheti, hogy a
 programot közvetlenül gépi kódra fordítja, így nagyságrendekkel javul a
 teljesítmény az értelmezett, vagy a bájt kódra fordított megoldásokkal
 összehasonlítva.
@@ -311,7 +315,7 @@ támogatja a technológiát.
 
 A kapcsolat létrejötte
 
-A WebSocket\index{WebSocket} szerver megadott TCP porton hallgat és várja a
+A WebSocket\index{WebSocket} szerver megadott \acrshort{tcp} porton hallgat és várja a
 kapcsolatokat. A kapcsolatot tehát a kliens kezdeményezi úgy, hogy
 kérést küld a szervernek, melyben kéri a kapcsolat felállítását. Ez egy
 HTTP GET Upgrade kérés formájában történik. Ha ezt a szerver ezt
@@ -344,13 +348,13 @@ a legkönnyebb folyamatos teszteléssel kiszűrni. A tesztelést többféle
 böngészővel kell végezni.
 
 
-\subsubsection{HTML5 Canvas}
+\subsubsection{HTML5 \Gls{canvas}}
 
 A böngészők régóta képesek grafikai elemek megjelenítésére. Az elmúlt
 években ezen a téren jelentős előrelépések voltak mind
 funkcionalitásban, mind teljesítményben. A HTML5-ös szabványos vászonra
-JavaScript-el rajzolhatunk alakzatokat, így téglalapot, kört, szöveget
-vagy akár raszter, sőt vektorgrafikus képeket is. A canvas alapú
+\gls{javascript}-el rajzolhatunk alakzatokat, így téglalapot, kört, szöveget
+vagy akár raszter, sőt vektorgrafikus képeket is. A \gls{canvas} alapú
 megjelenítéssel együtt jár annak könnyű beillesztése a felületbe, hiszen
 a böngésző saját stílusbeállításait használhatjuk.
 
@@ -485,7 +489,7 @@ exportálni, használhatjuk a module.exports változót, így nem kell
 jellemzőnkként felépíteni az objektumot. Modulok betöltésére a require
 függvényt használhatjuk, melynek első paramétereként a betölteni kívánt
 fájl nevét kell megadnunk. Ez mind a Node.js jellegzetessége, tehát a
-szabványos JavaScriptnek így a V8-nak sem szerves része.
+szabványos \gls{javascript}nek így a V8-nak sem szerves része.
 
 Az én megvalósításom is ezekre alapul. A meghívott start program tölti
 be a többi programrészt. Ez elegáns megoldás, hiszen könnyen
@@ -826,7 +830,7 @@ ami szerint az adattagok alapesetben védettek, és csak a szükséges
 adattagok érhetőek el. Az elérés közvetlen elérés helyett jellemzőkkel
 van megoldva.
 
-A JavaScript nyelvben lehetőség van jellemzők létrehozására, Ez viszont
+A \gls{javascript} nyelvben lehetőség van jellemzők létrehozására, Ez viszont
 más nyelvekhez képes jelentősen kényelmetlenebb.
 
 A kód mutatja a csoportkezelő egyik jellemzőjének létrehozását.
@@ -916,7 +920,7 @@ elindításakor létrehozott időzítő gondoskodik.
 \subsubsection{A játék
 frissítése}
 
-A JavaScript alapértelmezetten támogatja az időzítőket. A mellékelt kódban
+A \gls{javascript} alapértelmezetten támogatja az időzítőket. A mellékelt kódban
 látható ennek működése. A „timer'' a játék egy belső objektuma. A
 „setInterval'' függvénnyel időzítőt készíthetünk, amely tetszőleges
 függvényt hív meg tetszőleges időközönként. Esetünkben a játék
@@ -1114,7 +1118,7 @@ Az ilyen ütközést és kimenetelét átgondolni is bonyolultabb, így azt
 leprogramozni is nehezebb, mint a fallal történő ütközést.
 
 Közvetlen ütközés során a mozgásban lévő egységek mozgási energiája
-megmarad, áttevődik. Ahogyan a \ref{kor:utk} ábra is mutaja, ha egy 
+megmarad, áttevődik. Ahogyan \aref{kor:utk}. ábra is mutaja, ha egy 
 álló testnek ütközik valami, akkor az addig
 álló test mozgásba lendül és az addig mozgó test megáll. Amennyiben egy
 lassan mozgó testet hátulról egy gyorsabban mozgó test löki meg, akkor
@@ -1122,19 +1126,14 @@ az ütközés után az első test gyorsabban, a hátsó test lassabban fog
 mozogni. Így gyakorlatilag megcserélődik a mozgások irányvektora.
 
 
-\begin{figure}[ht]
-	\caption{Az eltrítési szög kiszámítása}
-	\label{kepletcsoport}
-	\begin{eqnarray}
-	\label{eq:group_first}
-	\gamma_v & = & atan2(y_{21}, x_{21}) \\
-	\label{eq:group_second}
-	\gamma & = & \gamma_{xv} - \gamma_v \\
-	r_d & = & d \cdot sin(\gamma)/r_{12} \\
-	\alpha & = & sin(r_d)
-	\end{eqnarray}
-
-\end{figure}
+\begin{eqnarray}
+\label{eq:group_first}
+\gamma_v & = & atan2(y_{21}, x_{21}) \\
+\label{eq:group_second}
+\gamma & = & \gamma_{xv} - \gamma_v \\
+r_d & = & d \cdot sin(\gamma)/r_{12} \\
+\alpha & = & sin(r_d)
+\end{eqnarray}
 
 Egy másik, problémásabb eset, amikor a testek csak „súrolják'' egymást.
 Ilyenkor az ütközés után a testek mozgásának vektora kiesik az ütközési
@@ -1162,16 +1161,15 @@ beszélhetünk. Ilyenkor mindkét játékos mozgásban lehet, így az ütközés
 gyakorlati megvalósítása igazi kihívássá válik. A már bemutatott
 klasszikus ütközés első megvalósítási kísérlete nem hozott sok sikert.
 Némi kutatás után több eltérő megoldást is találtam.
-\begin{figure}[ht]
-	\caption{Sebesség ütközés után, tömegtől függően}
-	\label{keplet}
+
 \begin{equation}
 \label{eq:single}
-v_1=\frac{u_1\cdot (m_1 - m_2) + 2m_2 u_2}{m_1 + m_2} 
+\begin{split}
+v_1=\frac{u_1\cdot (m_1 - m_2) + 2m_2 u_2}{m_1 + m_2} \\
 v_2=\frac{u_2\cdot (m_2 - m_1) + 2m_1 u_1}{m_1 + m_2}
+\end{split}
 \end{equation}
 
-\end{figure}
 
 
 A saját algoritmus hibáit a \ref{eq:single} képlet alapján javítottam, így már tökéletesen
@@ -1234,7 +1232,7 @@ felül, baloldalon alul pedig a játékosokra lebontva látható a szerzett
 pontok száma. A baloldali információs fülön megjelenik még egy kilépés
 gomb is. Ezzel a felhasználó elhagyhatja a szobát.
 
-A játék irányítása a nyíl gombokkal, vagy a WASD gombokkal történhet. Az
+A játék irányítása a nyíl gombokkal, vagy a \acrshort{wasd} gombokkal történhet. Az
 irányításhoz a játékterületnek kell aktívnak lennie. A meccsel
 kapcsolatos további információkat a TAB gomb lenyomásával érhetjük el.
 
@@ -1297,9 +1295,9 @@ Fontosnak tartottam még azt is, hogy a lehető legalacsonyabbak legyenek
 a környezettel kapcsolatos elvárások. Ily módon minden modern operációs
 rendszer és böngésző képes az általam írt program futtatására.
 
-A program minden részét JavaScript nyelven írtam. Eleinte alig ismertem
+A program minden részét \gls{javascript} nyelven írtam. Eleinte alig ismertem
 a technológiát, a fejlesztés során viszont megbarátkoztam a számomra új
-nyelvezettel. Mára mondhatom, hogy ismerem a JavaScript-et és biztos
+nyelvezettel. Mára mondhatom, hogy ismerem a \gls{javascript}-et és biztos
 vagyok benne, hogy ennek még később is hasznát veszem. Visszatekintve
 büszkeséggel tölt el, hogy így bele mertem vágni egy addig ismeretlen
 témába.
@@ -1319,7 +1317,9 @@ kipróbálni a játékomat. Számomra a játék létrehozásának minden lépés
 \printindex
 
 
-\printglossaries
+\printglossary[type=\acronymtype]
+
+\printglossary
 
 \renewcommand{\section}[1]{\oldsection{#1}}
 
